@@ -18,9 +18,12 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 
 function Lemon() {
   const [copied, setCopied] = useState(false);
+
+  let { id } = useParams();
 
   const handleCopy = () => {
     setCopied(true);
@@ -69,7 +72,11 @@ function Lemon() {
             >
               <div className="d-flex align-items-center ">
                 <div className="me-2">
-                  <Link to={"/update"} className="btn border-0 p-0 text-grey">
+                  <Link
+                    to={`/update/${id}`}
+                    className="btn border-0 p-0 text-grey"
+            
+                  >
                     <i
                       class="bi bi-pencil-square"
                       style={{ fontSize: "14px" }}

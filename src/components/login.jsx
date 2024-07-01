@@ -28,9 +28,8 @@ function Login() {
       );
       alert(response.data.message);
       if (response.status === 200) {
-        const { token } = response.data;
-        localStorage.setItem("token", token);
-        navigate("/home");
+        
+        navigate(`/home/${response.data.userId}`);
       }
     } catch (error) {
       alert("Error logging in");

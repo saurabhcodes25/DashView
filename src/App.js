@@ -16,10 +16,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Lemon />} />
+          <Route path="/home/:id" element={<Lemon />} />
           <Route path="/hybrid" element={<HybridProxies />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/update" element={<Update />} />
+          <Route path="/update/:id" element={<Update />} />
           {/* <Route path="/grid" element={<Grid />} /> */}
           {/* <Route path="/flex" element={<Flex />} /> */}
         </Routes>

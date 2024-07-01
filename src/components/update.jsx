@@ -2,6 +2,7 @@ import { Container, Form, Button, Image } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import img from "../assets/pfp.jpeg";
+import { useParams } from "react-router-dom";
 
 function Update() {
   const [showPass, setShowPass] = useState(false);
@@ -12,6 +13,7 @@ function Update() {
     password: "",
   });
 
+  let { id } = useParams();
   const togglePass = () => setShowPass(!showPass);
 
   const handleChange = (e) => {
@@ -21,22 +23,15 @@ function Update() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const token = localStorage.getItem("token");
-
-      const response = await axios.put(
-        "http://localhost:5000/update",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      alert(response.data.message);
-    } catch (error) {
-      alert("Error updating user");
-    }
+    formData["user_id"] = id;
+    console.log(formData);
+    axios.put("http://localhost:5000/edit", formData)
+    .then(function(response){
+      alert(response.data.message)
+    })
+    .catch(function(error){
+      alert(error)
+    })
   };
 
   return (
