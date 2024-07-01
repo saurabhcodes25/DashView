@@ -22,11 +22,18 @@ function Update() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      const token = localStorage.getItem("token");
+
+      const response = await axios.put(
         "http://localhost:5000/update",
-        formData
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
-      alert(response.data);
+      alert(response.data.message);
     } catch (error) {
       alert("Error updating user");
     }
@@ -39,7 +46,7 @@ function Update() {
       style={{ height: "100vh" }}
     >
       <Container
-        className=" mt-5 w-25 form-container border border-dark rounded-3  bg-cards "
+        className="mt-5 w-25 form-container border border-dark rounded-3 bg-cards"
         style={{ width: "30%" }}
       >
         <div className="text-center">
@@ -53,7 +60,7 @@ function Update() {
         </div>
 
         <Form className="p-3" onSubmit={handleSubmit}>
-          <Form.Group className="  pb-3">
+          <Form.Group className="pb-3">
             <Form.Label>Username</Form.Label>
             <Form.Control
               name="username"
@@ -63,7 +70,7 @@ function Update() {
               onChange={handleChange}
             />
           </Form.Group>
-          <Form.Group className="  pb-3">
+          <Form.Group className="pb-3">
             <Form.Label>Full Name</Form.Label>
             <Form.Control
               name="fullName"
@@ -73,7 +80,7 @@ function Update() {
               onChange={handleChange}
             />
           </Form.Group>
-          <Form.Group className="  pb-3">
+          <Form.Group className="pb-3">
             <Form.Label>Email Address</Form.Label>
             <Form.Control
               type="email"
@@ -84,7 +91,7 @@ function Update() {
               onChange={handleChange}
             />
           </Form.Group>
-          <Form.Group className=" pb-3">
+          <Form.Group className="pb-3">
             <Form.Label>Password</Form.Label>
             <div className="d-flex">
               <Form.Control
@@ -97,11 +104,11 @@ function Update() {
               />
               <i
                 onClick={togglePass}
-                className=" rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"
+                className="rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"
               ></i>
             </div>
           </Form.Group>
-          <Form.Group className=" pb-3">
+          <Form.Group className="pb-3">
             <Button
               className="w-100 border-0"
               type="submit"

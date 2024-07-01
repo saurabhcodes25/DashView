@@ -17,6 +17,7 @@ import pfp from "../assets/pfp.jpeg";
 import { useState, React } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 function HybridProxies() {
   const [modalShow, setModalShow] = useState(false);
@@ -648,7 +649,17 @@ function HybridProxies() {
                 </Card>
               </Col>
             </Row>
+            <div className="text-end ">
+            <Link
+              to={"/home"}
+              className="btn border-0 text-white mb-3 mt-1 me-3"
+              style={{ backgroundColor: "#EC532D" }}
+            >
+              Prev
+            </Link>
           </div>
+          </div>
+          
         </Container>
       </Container>
 

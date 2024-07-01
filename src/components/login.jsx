@@ -28,7 +28,8 @@ function Login() {
       );
       alert(response.data.message);
       if (response.status === 200) {
-        // Redirect to /home
+        const { token } = response.data;
+        localStorage.setItem("token", token);
         navigate("/home");
       }
     } catch (error) {
@@ -46,7 +47,6 @@ function Login() {
         className="mt-5 w-25 form-container bg-cards border rounded-3 border-dark"
         style={{ width: "30%" }}
       >
-       
         <div className="text-center">
           <Image
             src={img}
