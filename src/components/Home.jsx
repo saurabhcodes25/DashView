@@ -63,11 +63,18 @@ function Lemon() {
               <span class="text-grey fs-5">Dashboard / </span>
               <span class="fs-5">Home </span>
             </h1>
-
             <div
               className="d-flex align-items-center pe-2 "
               style={{ fontSize: "17px" }}
             >
+              <div className="">
+                <Link to={"/update"} className="btn border-0 p-0 text-grey">
+                  <i
+                    class="bi bi-gear-wide-connected"
+                    style={{ fontSize: "15px" }}
+                  ></i>
+                </Link>
+              </div>
               <i
                 class="btn bi bi-bell p-2 text-grey"
                 type="button"
@@ -569,6 +576,7 @@ function Lemon() {
               </Table>
             </Card>
           </Container>
+
           <div className="text-end ">
             <Link
               to={"/hybrid"}

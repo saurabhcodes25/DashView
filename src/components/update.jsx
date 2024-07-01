@@ -1,16 +1,16 @@
 import { Container, Form, Button, Image } from "react-bootstrap";
-import img from "../assets/pfp.jpeg";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import img from "../assets/pfp.jpeg";
 
-function Login() {
+function Update() {
   const [showPass, setShowPass] = useState(false);
   const [formData, setFormData] = useState({
-    usernameOrEmail: "",
+    username: "",
+    fullName: "",
+    email: "",
     password: "",
   });
-  const navigate = useNavigate();
 
   const togglePass = () => setShowPass(!showPass);
 
@@ -23,16 +23,12 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/login",
+        "http://localhost:5000/update",
         formData
       );
-      alert(response.data.message);
-      if (response.status === 200) {
-        // Redirect to /home
-        navigate("/home");
-      }
+      alert(response.data);
     } catch (error) {
-      alert("Error logging in");
+      alert("Error updating user");
     }
   };
 
@@ -43,65 +39,83 @@ function Login() {
       style={{ height: "100vh" }}
     >
       <Container
-        className="mt-5 w-25 form-container bg-cards border rounded-3 border-dark"
+        className=" mt-5 w-25 form-container border border-dark rounded-3  bg-cards "
         style={{ width: "30%" }}
       >
-       
         <div className="text-center">
           <Image
             src={img}
             height="100px"
             className="m-2 p-3 centered rounded-5"
           />
-          <br />
-          <Form.Label className="fs-3 fw-bold">Login</Form.Label>
+          <br></br>
+          <Form.Label className="fs-3 fw-bold">Edit Profile</Form.Label>
         </div>
+
         <Form className="p-3" onSubmit={handleSubmit}>
-          <Form.Group className="pb-3">
-            <Form.Label>Username/Email</Form.Label>
+          <Form.Group className="  pb-3">
+            <Form.Label>Username</Form.Label>
             <Form.Control
+              name="username"
+              placeholder="Username"
               className="button-bg border-0 text-white"
-              placeholder="Username or Email"
-              name="usernameOrEmail"
-              value={formData.usernameOrEmail}
+              value={formData.username}
               onChange={handleChange}
             />
           </Form.Group>
-          <Form.Group className="pb-3">
+          <Form.Group className="  pb-3">
+            <Form.Label>Full Name</Form.Label>
+            <Form.Control
+              name="fullName"
+              placeholder="Full Name"
+              className="button-bg border-0 text-white"
+              value={formData.fullName}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="  pb-3">
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              className="button-bg border-0 text-white"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className=" pb-3">
             <Form.Label>Password</Form.Label>
             <div className="d-flex">
               <Form.Control
                 type={showPass ? "text" : "password"}
+                name="password"
                 placeholder="Password"
                 className="button-bg border-0 text-white rounded-end-0"
-                name="password"
                 value={formData.password}
                 onChange={handleChange}
               />
               <i
                 onClick={togglePass}
-                className="rounded-start-0 rounded-2 button-bg text-white btn bi bi-eye"
+                className=" rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"
               ></i>
             </div>
           </Form.Group>
-          <Form.Group className="pb-3">
+          <Form.Group className=" pb-3">
             <Button
               className="w-100 border-0"
               type="submit"
-              style={{ backgroundColor: "#EC532D" }}
+              style={{
+                backgroundColor: "#EC532D",
+              }}
             >
-              Login
+              Update
             </Button>
           </Form.Group>
-          <div className="text-center" style={{ fontSize: 14 }}>
-            <Link to={"/register"} className="border-0 text-grey  my-2 me-3">
-              Not a member? Register
-            </Link>
-          </div>
         </Form>
       </Container>
     </Container>
   );
 }
 
-export default Login;
+export default Update;

@@ -6,6 +6,7 @@ import Register from './components/register';
 import Lemon from './components/Home';
 import HybridProxies from './components/hybridProxies';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Update from './components/update';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/home" element={<Lemon />} />
           <Route path="/hybrid" element={<HybridProxies />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/update" element={<Update />} />
           {/* <Route path="/grid" element={<Grid />} /> */}
           {/* <Route path="/flex" element={<Flex />} /> */}
         </Routes>
