@@ -14,7 +14,7 @@ code {
  color:red ;
 }
 .text-grey{
-  color: #b3b6be !important;
+  color: #7E7F83 !important;
 }
 .bg-grey2{
   background-color:  #262A30 !important;
@@ -38,10 +38,22 @@ background-color: #16171B !important;
   color: #b3b6be !important;
 
 }
-
 .table-info{
   --bs-table-bg:#16171B  !important;
 }
 .button-bg{
   background-color: #1B1C20 !important ;
+}
+
+.buttons-ani:hover{
+  background-color: #EC532D !important;
+  -webkit-text-fill-color: white !important;
+  border-color: #EC532D !important;
+}
+.buttons-ani2:hover{
+  -webkit-text-fill-color: white !important;
+}
+.buttons-ani3:hover{
+  -webkit-text-fill-color: white !important;
+  background-color: #16171B !important;
 }
