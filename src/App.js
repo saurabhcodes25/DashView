@@ -13,11 +13,10 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-
           <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/home/:id" element={<Lemon />} />
           <Route path="/hybrid/:id" element={<HybridProxies />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/update/:id" element={<Update />} />
         </Routes>
       </BrowserRouter>

@@ -96,8 +96,6 @@ app.post('/login', async (req, res) => {
       username: user.username,
       email: user.email
     };
-    console.log(req.session.user)
-
     res.status(200).json({ message: 'Login successful', userId });
   } catch (error) {
     res.status(400).send('Error logging in');
@@ -150,7 +148,6 @@ app.post('/logout', async (req, res) => {
     res.clearCookie('connect.sid');
     res.status(200).send('Logout successful');
   });
-
 });
 
 
