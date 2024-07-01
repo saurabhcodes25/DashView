@@ -154,7 +154,7 @@ function HybridProxies() {
                               delay={{ show: 150, hide: 200 }}
                               overlay={renderTooltip}
                             >
-                              <i class="bi bi-info-circle p-2 text-grey"></i>
+                              <i class="bi bi-info-circle p-2 text-grey" style={{fontSize:"10px"}}></i>
                             </OverlayTrigger>
                           </div>
                           <div className="text-red2">$2.45/isp</div>
