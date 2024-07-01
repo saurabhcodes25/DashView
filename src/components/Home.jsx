@@ -436,7 +436,7 @@ function Lemon() {
 
             {/* table card */}
             <Card
-              className="ps-4 pe-4 mx-2 table-responsive bg-cards"
+              className="ps-4 pe-4 mx-2 table-responsive bg-cards border-dark"
               style={{ maxHeight: "320px" }}
             >
               <Table

@@ -338,9 +338,7 @@ function HybridProxies() {
               </Col>
               <Col md={9}>
                 {/* Card 3 */}
-                <Card
-                  className=" ms-0 mt-3 me-2  p-1 bg-cards text-white border-dark"
-                >
+                <Card className=" ms-0 mt-3 me-2  p-1 bg-cards text-white border-dark">
                   <div className="d-flex align-items-center justify-content-between border-bottom border-dark">
                     <Card.Header className="">Your Orders</Card.Header>
                     <InputGroup
@@ -350,6 +348,7 @@ function HybridProxies() {
                       <Form.Control
                         className="text-grey bg-cards border-end-0 border-dark"
                         placeholder="Search Orders"
+                        style={{ fontSize: 14 }}
                       />
                       <InputGroup.Text className=" buttons-ani bg-cards border-dark text-grey">
                         <i class="bi bi-search"></i>
@@ -357,7 +356,7 @@ function HybridProxies() {
                     </InputGroup>
                   </div>
 
-                    {/* Table inside card 3 */}
+                  {/* Table inside card 3 */}
                   <Table
                     className=" table-info m-1"
                     style={{
