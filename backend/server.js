@@ -4,14 +4,36 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
-
+import session from 'express-session';
+import MongoStore from 'connect-mongo';
+import cookieParser from 'cookie-parser';
 dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 app.use(bodyParser.json());
+app.use(cookieParser())
 
+
+
+//sessions
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: `${process.env.MONGODB_URI}/${process.env.dbname}`,
+    collectionName: 'sessions',
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24,// 1 day
+    httpOnly: true,
+  }
+}));
 //MongoDB connection
 try {
   const connectionInstance = await mongoose.connect(
@@ -41,7 +63,6 @@ const User = mongoose.model('User', userSchema);
 // Register endpoint
 app.post('/register', async (req, res) => {
   const { username, fullName, email, password } = req.body;
-
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ username, fullName, email, password: hashedPassword });
@@ -70,6 +91,11 @@ app.post('/login', async (req, res) => {
     }
     let userId = await User.findOne({ username: usernameOrEmail }, { password: password })
     userId = userId._id;
+    req.session.user = {
+      id: user._id,
+      username: user.username,
+      email: user.email
+    };
 
     res.status(200).json({ message: 'Login successful', userId });
   } catch (error) {
@@ -80,10 +106,10 @@ app.post('/login', async (req, res) => {
 // Update endpoint
 app.put('/update', async (req, res) => {
   const { user_id, username, fullName, email, password } = req.body;
-  const newPass = bcrypt.hash(password, 10);
+  const newPass = await bcrypt.hash(password, 10);
   try {
     const user = await User.findOneAndUpdate(
-      { '_id': user_id }, { $set: { username, fullName, email, newPass } }, { new: true }
+      { '_id': user_id }, { $set: { username, fullName, email, password: newPass } }, { new: true }
 
     );
 

@@ -25,7 +25,8 @@ function Login() {
     try {
       const response = await axios.post(
         "http://localhost:5000/login",
-        formData
+        formData,
+        { withCredentials: true }
       );
       toast(`${response.data.message}`, {
         className: "popup-background",
