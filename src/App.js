@@ -19,9 +19,6 @@ function App() {
           <Route path="/hybrid/:id" element={<HybridProxies />} />
           <Route path="/register" element={<Register />} />
           <Route path="/update/:id" element={<Update />} />
-          <Route path="/delete/" element={<Login />} />
-          <Route path="/logout/" element={<Login />} />
-
         </Routes>
       </BrowserRouter>
 

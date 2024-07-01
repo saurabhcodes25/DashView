@@ -17,7 +17,7 @@ import { useState } from "react";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import axios from "axios";
 
@@ -27,7 +27,7 @@ function Lemon() {
   let { id } = useParams();
   const handleCopy = () => {
     setCopied(true);
-    
+
     // setTimeout(() => setCopied(false), 2000);
   };
   const handleDelete = () => {
@@ -63,7 +63,11 @@ function Lemon() {
   };
   const handleLogout = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/logout', {}, { withCredentials: true });
+      const response = await axios.post(
+        "http://localhost:5000/logout",
+        {},
+        { withCredentials: true }
+      );
       toast(`${response.data}`, {
         className: "popup-background",
         progressClassName: "progress-background",
@@ -76,7 +80,7 @@ function Lemon() {
         theme: "colored",
       });
     } catch (error) {
-      toast('Error logging out', {
+      toast("Error logging out", {
         className: "popup-background",
         progressClassName: "progress-background",
         position: "top-right",
@@ -145,7 +149,7 @@ function Lemon() {
                 </div>
                 <div className="">
                   <Link
-                    to={`/delete`}
+                    to={`/`}
                     className="btn border-0 p-0 me-2 text-grey"
                     onClick={handleDelete}
                   >
@@ -154,11 +158,14 @@ function Lemon() {
                 </div>
                 <div className="">
                   <Link
-                    to={`/logout`}
+                    to={`/`}
                     className="btn border-0 p-0 text-grey"
                     onClick={handleLogout}
                   >
-                    <i class="bi bi-box-arrow-right" style={{ fontSize: "14px" }}></i>
+                    <i
+                      class="bi bi-box-arrow-right"
+                      style={{ fontSize: "14px" }}
+                    ></i>
                   </Link>
                 </div>
                 <i

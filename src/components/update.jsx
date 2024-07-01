@@ -1,4 +1,4 @@
-import { Container, Form, Button, Image} from "react-bootstrap";
+import { Container, Form, Button, Image } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import img from "../assets/pfp.jpeg";
