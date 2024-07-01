@@ -57,3 +57,12 @@ background-color: #16171B !important;
   -webkit-text-fill-color: white !important;
   background-color: #16171B !important;
 }
+
+.popup-background{
+  background-color: #252D21 !important;
+  -webkit-text-fill-color: white !important;
+  
+}
+.progress-background{
+  background-color:#8FC542 !important;
+}

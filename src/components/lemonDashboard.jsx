@@ -12,15 +12,35 @@ import {
 } from "react-bootstrap";
 import pfp from "../assets/pfp.jpeg";
 import { useState } from "react";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Lemon() {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyClick = () => {
+  const handleCopy = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+  const notify = () => {
+    toast("Downloaded Successfully!", {
+      className: "popup-background",
+      progressClassName: "progress-background",
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
   return (
     <>
+      <ToastContainer />
+      <ToastContainer />
       <Container fluid className="border bg-dark2" style={{ height: "100vh" }}>
         <Container
           fluid
@@ -38,7 +58,7 @@ function Lemon() {
 
             <div
               className="d-flex align-items-center pe-2 "
-              style={{ fontSize: "15px" }}
+              style={{ fontSize: "17px" }}
             >
               <i class="bi bi-bell p-2 text-grey"></i>
               <Button className="bg-grey2 border border-dark">
@@ -115,7 +135,7 @@ function Lemon() {
                     />
                     <InputGroup.Text
                       className="bg-red2 border-dark text-white"
-                      onClick={handleCopyClick}
+                      onClick={handleCopy}
                     >
                       {copied ? "Copied" : "Copy"}
                     </InputGroup.Text>
@@ -291,7 +311,10 @@ function Lemon() {
                     </td>
                     <td className="text-center">$33.00</td>
                     <td className="text-center">
-                      <Button className="buttons-ani bg-cards border-gray3 text-grey button-bg">
+                      <Button
+                        onClick={notify}
+                        className="buttons-ani bg-cards border-gray3 text-grey button-bg"
+                      >
                         Download Invoice
                       </Button>
                     </td>
@@ -325,7 +348,10 @@ function Lemon() {
                     </td>
                     <td className="text-center">$33.00</td>
                     <td className="text-center">
-                      <Button className=" buttons-ani buttons-ani bg-cards border-gray3 text-grey button-bg">
+                      <Button
+                        onClick={notify}
+                        className=" buttons-ani buttons-ani bg-cards border-gray3 text-grey button-bg"
+                      >
                         Download Invoice
                       </Button>
                     </td>
@@ -359,7 +385,10 @@ function Lemon() {
                     </td>
                     <td className="text-center">$33.00</td>
                     <td className="text-center">
-                      <Button className=" buttons-ani bg-cards border-gray3 text-grey button-bg">
+                      <Button
+                        onClick={notify}
+                        className=" buttons-ani bg-cards border-gray3 text-grey button-bg"
+                      >
                         Download Invoice
                       </Button>
                     </td>
@@ -393,7 +422,10 @@ function Lemon() {
                     </td>
                     <td className="text-center">$33.00</td>
                     <td className="text-center">
-                      <Button className=" buttons-ani bg-cards border-gray3 text-grey button-bg">
+                      <Button
+                        onClick={notify}
+                        className=" buttons-ani bg-cards border-gray3 text-grey button-bg"
+                      >
                         Download Invoice
                       </Button>
                     </td>
@@ -427,7 +459,10 @@ function Lemon() {
                     </td>
                     <td className="text-center">$33.00</td>
                     <td className="text-center">
-                      <Button className="buttons-ani bg-cards border-gray3 text-grey button-bg">
+                      <Button
+                        onClick={notify}
+                        className="buttons-ani bg-cards border-gray3 text-grey button-bg"
+                      >
                         Download Invoice
                       </Button>
                     </td>
