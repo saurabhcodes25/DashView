@@ -22,8 +22,7 @@ code {
 .border-gray2{
   border-color: #2e3033 !important;
 }
-.border-gray3
-{
+.border-gray3{
   border-color: #494C50 !important;
 }
 .bg-cards{
@@ -31,4 +30,7 @@ background-color: #16171B !important;
 }
 .bg-red2{
   background-color:#EC532D !important;
+}
+.form-control::placeholder { 
+  color: #b3b6be !important;
 }
