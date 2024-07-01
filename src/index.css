@@ -10,6 +10,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.text-button1{
+ color:red ;
+}
 .text-grey{
   color: #b3b6be !important;
 }
@@ -33,4 +36,12 @@ background-color: #16171B !important;
 }
 .form-control::placeholder { 
   color: #b3b6be !important;
+
+}
+
+.table-info{
+  --bs-table-bg:#16171B  !important;
+}
+.button-bg{
+  background-color: #1B1C20 !important ;
 }

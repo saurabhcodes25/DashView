@@ -14,7 +14,7 @@ import {
 function Lemon() {
   return (
     <>
-      <Container fluid className="border bg-cards " style={{ height: "100vh" }}>
+      <Container fluid className="border bg-dark2" style={{ height: "100vh" }}>
         <Container
           fluid
           className="border border-dark mt-4 p-0 rounded-4"
@@ -45,12 +45,15 @@ function Lemon() {
             </div>
           </Container>
 
+          {/* card1 */}
           <Container fluid className="">
             <div
-              className="d-flex text-white p-2 justify-content-between"
+              className="d-flex text-white align-content-start justify-content-between "
               style={{ fontSize: 14 }}
             >
-              <Card className="m-3  pt-2 p-1 bg-cards text-white border-dark ">
+              <Card className="mt-3 m-2  pt-2 p-1 bg-cards text-white border-dark " 
+                style={{ width: "500px" }}
+              >
                 <div className="d-flex  align-items-center justify-content-between">
                   <Card.Header className="border-0">
                     Loyality Status
@@ -111,7 +114,10 @@ function Lemon() {
 
               {/* card2 */}
 
-              <Card className="m-3 p-1 bg-cards text-white border-dark w-50">
+              <Card
+                className="mt-3 m-2 p-1 bg-cards text-white border-dark"
+                style={{ width: "800px" }}
+              >
                 <div className="d-flex  align-items-center justify-content-between">
                   <Card.Header className="border-0">Announcements</Card.Header>
                 </div>
@@ -170,7 +176,10 @@ function Lemon() {
               </Card>
 
               {/* card3 */}
-              <Card className="m-3 p-2 bg-cards text-white border-dark">
+              <Card
+                className="mt-3 m-2 p-2 bg-cards text-white border-dark"
+                style={{ width: "300px" }}
+              >
                 <Card.Header className="border-0" style={{ fontSize: 14 }}>
                   Help Center
                 </Card.Header>
@@ -198,68 +207,146 @@ function Lemon() {
                 </ListGroup>
               </Card>
             </div>
-            <div>
-              <Table className="p-2  table-dark text-white">
-                <thead className="">
+            
+              <Table
+                className="pt-3 m-2 p-2 ts-4 table-info border-dark justify-items-center" 
+                style={{ width: "1375px",borderRadius:"10px",overflow:"hidden",WebkitTextFillColor:"white",fontSize:14  }}
+              >
+                <thead className=" text-white fw-light">
                   <tr className="">
-                    <th>ID</th>
+                    <th  className="">ID</th>
                     <th>Product</th>
-                    <th>Date</th>
+                    <th>
+                      Date
+                      <i class="bi bi-arrow-up p-2 " style={{WebkitTextFillColor:"grey",fontSize:"10px"}}></i>
+                    </th>
                     <th>Quantity</th>
                     <th>Status</th>
-                    <th>Total</th>
+                    <th>
+                      Total
+                      <i class="bi bi-arrow-up p-2" style={{WebkitTextFillColor:"grey",fontSize:"10px"}}></i>
+                    </th>
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody className="border-bottom border-dark">
-                  <tr>
-                    <td>#AP1934</td>
-                    <td>Static Process</td>
+                <tbody className="text-grey" style={{WebkitTextFillColor:"#7E7D7C"}}>
+                  <tr className="border-bottom border-dark">
+                    <td>
+                      <i
+                        class="bi bi-copy pe-2"
+                        style={{ fontSize: "10px" }}
+                      ></i>
+                      #AP1934
+                    </td>
+                    <td>Static Proxies</td>
                     <td>26 April 2016</td>
                     <td>4GB</td>
-                    <td>hello</td>
+                    <td><Button className=" border-0 text-red2" style={{backgroundColor:'#2C2C21',WebkitTextFillColor:'#F5E65A',fontSize:14}}>
+                    <i class="bi bi-circle-fill me-2" style={{fontSize:"8px"}}></i>
+
+                        Waiting
+                      </Button></td>
                     <td>$33.00</td>
-                    <td>hello</td>
+                    <td>
+                      <Button className="bg-cards border-gray3 text-grey button-bg">
+                        Download Invoice
+                      </Button>
+                    </td>
                   </tr>
-                  <tr>
-                    <td>#AP1934</td>
-                    <td>Static Process</td>
+                  <tr className="border-bottom border-dark">
+                    <td>
+                      <i
+                        class="bi bi-copy pe-2"
+                        style={{ fontSize: "10px" }}
+                      ></i>
+                      #AP1934
+                    </td>
+                    <td>Static Proxies</td>
                     <td>26 April 2016</td>
                     <td>4GB</td>
-                    <td>hello</td>
+                    <td><Button className=" border-0 " style={{backgroundColor:'#2C2C21',WebkitTextFillColor:'#F5E65A',fontSize:14}}>
+                    <i class="bi bi-circle-fill me-2" style={{fontSize:"8px"}}></i>
+
+                        Waiting
+                      </Button></td>
                     <td>$33.00</td>
-                    <td>hello</td>
+                    <td>
+                      <Button className="bg-cards border-gray3 text-grey button-bg">
+                        Download Invoice
+                      </Button>
+                    </td>
                   </tr>
-                  <tr>
-                    <td>#AP1934</td>
-                    <td>Static Process</td>
+                  <tr className="border-bottom border-dark">
+                    <td>
+                      <i
+                        class="bi bi-copy pe-2"
+                        style={{ fontSize: "10px" }}
+                      ></i>
+                      #AP1934
+                    </td>
+                    <td>Static Proxies</td>
                     <td>26 April 2016</td>
                     <td>4GB</td>
-                    <td>hello</td>
+                    <td><Button className=" border-0 text-red2" style={{backgroundColor:'#252D21',WebkitTextFillColor:'#B1F55A',fontSize:14}}>
+                    <i class="bi bi-circle-fill me-2" style={{fontSize:"8px"}}></i>
+
+                        Active
+                      </Button></td>
                     <td>$33.00</td>
-                    <td>hello</td>
+                    <td>
+                      <Button className="bg-cards border-gray3 text-grey button-bg">
+                        Download Invoice
+                      </Button>
+                    </td>
                   </tr>
-                  <tr>
-                    <td>#AP1934</td>
-                    <td>Static Process</td>
+                  <tr className="border-bottom border-dark">
+                    <td>
+                      <i
+                        class="bi bi-copy pe-2"
+                        style={{ fontSize: "10px" }}
+                      ></i>
+                      #AP1934
+                    </td>
+                    <td>Static Proxies</td>
                     <td>26 April 2016</td>
                     <td>4GB</td>
-                    <td>hello</td>
+                    <td>
+                    <Button className=" border-0 text-red2" style={{backgroundColor:'#2D1D21',WebkitTextFillColor:'#FA5555',fontSize:14}}>
+                    <i class="bi bi-circle-fill me-2" style={{fontSize:"8px"}}></i>
+                        Expired
+                      </Button>
+                    </td>
                     <td>$33.00</td>
-                    <td>hello</td>
+                    <td>
+                      <Button className="bg-cards border-gray3 text-grey button-bg">
+                        Download Invoice
+                      </Button>
+                    </td>
                   </tr>
-                  <tr>
-                    <td>#AP1934</td>
-                    <td>Static Process</td>
+                  <tr className="border-bottom border-dark">
+                    <td>
+                      <i
+                        class="bi bi-copy pe-2"
+                        style={{ fontSize: "10px" }}
+                      ></i>
+                      #AP1934
+                    </td>
+                    <td>Static Proxies</td>
                     <td>26 April 2016</td>
                     <td>4GB</td>
-                    <td>hello</td>
+                    <td><Button className=" border-0"style={{backgroundColor:'#2D1D21',WebkitTextFillColor:'#FA5555',fontSize:14}} >
+                    <i class="bi bi-circle-fill me-2" style={{fontSize:"8px"}}></i>
+                        Expired
+                      </Button></td>
                     <td>$33.00</td>
-                    <td>hello</td>
+                    <td>
+                      <Button className="bg-cards border-gray3 text-grey button-bg">
+                        Download Invoice
+                      </Button>
+                    </td>
                   </tr>
                 </tbody>
               </Table>
-            </div>
           </Container>
         </Container>
       </Container>

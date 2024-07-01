@@ -8,12 +8,12 @@ import Flex from './components/flex'
 function App() {
   return (
     <>
-    {/* <Grid/> */}
-    {/* <Flex/> */}
-        {/* <Login /> */}
-        {/* <Register /> */}
+      {/* <Grid/> */}
+      {/* <Flex/> */}
+      {/* <Login /> */}
+      {/* <Register /> */}
       {/* </div> */}
-      <Lemon/>
+      <Lemon />
     </>
   );
 }
