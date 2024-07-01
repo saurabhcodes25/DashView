@@ -36,6 +36,20 @@ function HybridProxies() {
       theme: "colored",
     });
   };
+  const notifyPur = () => {
+    toast("Purchased Successfully!", {
+      className: "popup-background",
+      progressClassName: "progress-background",
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Text goes here
@@ -154,7 +168,10 @@ function HybridProxies() {
                               delay={{ show: 150, hide: 200 }}
                               overlay={renderTooltip}
                             >
-                              <i class="bi bi-info-circle p-2 text-grey" style={{fontSize:"10px"}}></i>
+                              <i
+                                class="bi bi-info-circle p-2 text-grey"
+                                style={{ fontSize: "10px" }}
+                              ></i>
                             </OverlayTrigger>
                           </div>
                           <div className="text-red2">$2.45/isp</div>
@@ -220,7 +237,7 @@ function HybridProxies() {
                       </div>
                     </div>
                     <Button
-                      onClick={notify}
+                      onClick={notifyPur}
                       className=" bg-cards border-0 bg-red2 m-2 p-2"
                     >
                       Purchase
@@ -228,11 +245,11 @@ function HybridProxies() {
                   </Card>
                 </div>
               </Col>
-              <Col md={8}>
+              <Col md={9}>
                 {/* card3 */}
                 <Card
                   className=" m-3 pt-2 p-1 bg-cards text-white border-dark"
-                  style={{ width: "100%" }}
+                  // style={{ width: "100%" }}
                 >
                   <div className="d-flex align-items-center justify-content-between border-bottom border-dark">
                     <Card.Header className="">Your Orders</Card.Header>
@@ -251,7 +268,7 @@ function HybridProxies() {
                   </div>
 
                   <Table
-                    className=" table-info mr-2"
+                    className=" table-info"
                     style={{
                       WebkitTextFillColor: "white",
                       borderColor: "#16171B",
@@ -272,9 +289,9 @@ function HybridProxies() {
                           ></i>
                         </th>
                         <th>Quantity</th>
-                        <th className="text-center">Expiration</th>
-                        <th className="text-center">Location</th>
-                        <th className="text-center">Actions</th>
+                        <th className=" ">Expiration</th>
+                        <th className="">Location</th>
+                        <th className="">Actions</th>
                       </tr>
                     </thead>
                     <tbody
@@ -285,7 +302,7 @@ function HybridProxies() {
                         <td>Hybrid</td>
                         <td>26 Apr 2024</td>
                         <td>50</td>
-                        <td className="text-center">
+                        <td className="r">
                           <Button
                             className=" border-0"
                             style={{
@@ -338,7 +355,6 @@ function HybridProxies() {
                                     width: 200,
                                     height: 10,
                                     backgroundColor: "#16171B",
-                                    marginBlockStart: "10px",
                                   }}
                                 />
                               </div>
@@ -366,7 +382,7 @@ function HybridProxies() {
                         <td>Hybrid</td>
                         <td>26 Apr 2024</td>
                         <td>50</td>
-                        <td className="text-center">
+                        <td className="">
                           <Button
                             className=" border-0"
                             style={{
@@ -411,7 +427,7 @@ function HybridProxies() {
                                   100%
                                 </span>
                               </div>
-                              <div>
+                              <div className="p-1 m-2">
                                 <ProgressBar
                                   variant="green2"
                                   now={50}
@@ -419,7 +435,6 @@ function HybridProxies() {
                                     width: 200,
                                     height: 10,
                                     backgroundColor: "#16171B",
-                                    marginBlockStart: "10px",
                                   }}
                                 />
                               </div>
@@ -431,7 +446,7 @@ function HybridProxies() {
                           <span className="me-2">Used Today : 1.2GB</span>
                         </td>
                         <td
-                          class="bg-grey3 rounded-start-0 rounded-3"
+                          class="bg-grey3 rounded-start-0 rounded-3 text-end"
                           colSpan={1}
                         ></td>
                       </tr>
@@ -439,7 +454,7 @@ function HybridProxies() {
                         <td>Hybrid</td>
                         <td>26 Apr 2024</td>
                         <td>50</td>
-                        <td className="text-center">
+                        <td className="">
                           <Button
                             className=" border-0"
                             style={{
@@ -484,7 +499,7 @@ function HybridProxies() {
                                   100%
                                 </span>
                               </div>
-                              <div>
+                              <div className="p-1 m-2">
                                 <ProgressBar
                                   variant="green2"
                                   now={50}
@@ -492,7 +507,6 @@ function HybridProxies() {
                                     width: 200,
                                     height: 10,
                                     backgroundColor: "#16171B",
-                                    marginBlockStart: "10px",
                                   }}
                                 />
                               </div>
@@ -504,7 +518,7 @@ function HybridProxies() {
                           <span className="me-2">Used Today : 1.2GB</span>
                         </td>
                         <td
-                          class="bg-grey3 rounded-start-0 rounded-3"
+                          class="bg-grey3 rounded-start-0 rounded-3 text-end"
                           colSpan={1}
                         ></td>
                       </tr>
@@ -512,7 +526,7 @@ function HybridProxies() {
                         <td>Hybrid</td>
                         <td>26 Apr 2024</td>
                         <td>50</td>
-                        <td className="text-center">
+                        <td className="">
                           <Button
                             className=" border-0 text-red2"
                             style={{

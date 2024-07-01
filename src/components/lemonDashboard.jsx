@@ -289,7 +289,7 @@ function Lemon() {
                     <td>4GB</td>
                     <td className="text-center">
                       <Button
-                        className=" border-0 text-red2"
+                        className=" border-0"
                         style={{
                           backgroundColor: "#2C2C21",
                           WebkitTextFillColor: "#F5E65A",
@@ -363,7 +363,7 @@ function Lemon() {
                     <td>4GB</td>
                     <td className="text-center">
                       <Button
-                        className=" border-0 text-red2"
+                        className=" border-0 "
                         style={{
                           backgroundColor: "#252D21",
                           WebkitTextFillColor: "#B1F55A",
