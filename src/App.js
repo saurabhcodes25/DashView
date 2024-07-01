@@ -2,7 +2,8 @@ import './App.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 function Grid() {
   return (
@@ -96,14 +97,14 @@ function Flex() {
 
       {/*middle*/}
 
-      <Container  className='d-flex border border-1 '>
+      <Container className='d-flex border border-1 '>
 
         <Container className='text-center border border-1 '>
           <div >Left Blocks</div>
         </Container>
-        
 
-        <Container  className='border border-1'>
+
+        <Container className='border border-1'>
           <div className='border border-1'>Center-Center Blocks</div>
 
           <Container className='d-flex border border-1'>
@@ -130,7 +131,7 @@ function Flex() {
 
       {/* lower one */}
 
-      <Container  className='border border-1'>
+      <Container className='border border-1'>
         <Container fluid className='border border-1'>
           Footer Bar
         </Container>
@@ -140,7 +141,47 @@ function Flex() {
 
 
   )
-} 
+}
+
+function Login() {
+  return (
+    <Container className='border border-1'>
+      <Form>
+        <Form.Group>
+          <Form.Label>Username</Form.Label>
+          <Form.Control type="username" placeholder='Enter username' />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Container>
+
+          <p><Form.Group>
+
+            <Form.Check
+              type="switch"
+              id="custom-switch"
+              label="Remember me"
+            />
+          </Form.Group>
+
+            <Button variant='primary' type='submit'>
+              Submit
+            </Button>
+          </p>
+        </Container>
+
+      </Form>
+    </Container>
+  )
+}
 function App() {
   return (
     <div className="App">
@@ -148,6 +189,8 @@ function App() {
       <Grid />
       <h1>React Bootstrap with Flexbox</h1>
       <Flex />
+      <h1>Login Form</h1>
+      <Login />
     </div>
   );
 }
