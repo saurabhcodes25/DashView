@@ -10,103 +10,14 @@ import {
   Col,
   Row,
   Modal,
+  Tooltip,
+  OverlayTrigger,
 } from "react-bootstrap";
 import pfp from "../assets/pfp.jpeg";
 import { useState } from "react";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-function MyModal(props) {
-  return (
-    <Modal
-      {...props}
-      aria-labelledby="contained-modal-title-vcenter md-down"
-      centered
-    >
-      <Modal.Header
-        closeButton
-        className="bg-cards border-bottom-0 border border-dark "
-      >
-        <Modal.Title>Topup</Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="bg-cards border border-dark ">
-        <Card className=" m-3  pt-2 p-1 modal-card text-white border-dark ">
-          <div className="d-flex  align-items-center justify-content-between">
-            <Card.Header className="border-0">
-              Data Left
-              <i
-                class="p-1 text-grey bi bi-exclamation-circle"
-                style={{ fontSize: "10px" }}
-              ></i>
-            </Card.Header>
-          </div>
-          <div className="d-flex justify-content-between align-items-center m-1 p-2">
-            <div>
-              <span className="text-grey">Monthly Spent</span>
-              <div style={{ fontSize: 18 }}>
-                2.3GB
-                <span
-                  className="ms-2 p-1 text-grey border-dark bg-grey2 rounded-2"
-                  style={{ fontSize: 12 }}
-                >
-                  18%
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="p-1 m-2 mt-3">
-            <ProgressBar
-              variant="red2"
-              now={70}
-              style={{ height: 45, backgroundColor: "#16171B" }}
-            />
-          </div>
-        </Card>
-        <Card className="modal-card m-3 pt-2 p-1  text-white border-dark ">
-          <div className="d-flex justify-content-between align-items-center  m-1 p-2">
-            <div>
-              <span className="text-grey">Topup Amount</span>
-              <div>
-                <select
-                  className=" modal-card text-white rounded-2 ms-0 m-2"
-                  style={{ width: 250 }}
-                >
-                  <option className="fw-lighter ">8GB</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </Card>
-        <Card className="m-3 pt-2 p-1 modal-card text-white border-dark ">
-          <Card.Header className="border-0">Order Summary</Card.Header>
-          <div className="d-flex justify-content-between align-items-center border-bottom border-dark p-3">
-            <span className="text-grey">Total Price</span>
-            <span className="text-white " style={{ fontSize: 18 }}>
-              $45
-            </span>
-          </div>
-          <div className="d-flex justify-content-between align-items-center  m-1 p-2">
-            <div>
-              <span className="text-grey">Payment Method</span>
-              <div>
-                <select
-                  className="modal-card text-white rounded-2 ms-0 m-2"
-                  style={{ width: 250 }}
-                >
-                  <option className="fw-lighter ">Stripe</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <Button className=" bg-cards border-0 bg-red2 m-2 p-2">
-            Purchase
-          </Button>
-        </Card>
-      </Modal.Body>
-    </Modal>
-  );
-}
 
 function HybridProxies() {
   const [modalShow, setModalShow] = useState(false);
@@ -125,9 +36,14 @@ function HybridProxies() {
       theme: "colored",
     });
   };
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Text goes here
+    </Tooltip>
+  );
+
   return (
     <>
-      <MyModal show={modalShow} onHide={() => setModalShow(false)} />
       <ToastContainer />
       <ToastContainer />
       <Container fluid className="border bg-dark2" style={{ height: "100vh" }}>
@@ -231,7 +147,16 @@ function HybridProxies() {
                       <div className="d-flex ">
                         <Image src={pfp} height="40px" className="center" />
                         <div className="ms-2 " style={{ fontSize: 14 }}>
-                          <div>Hybrid ISPs</div>
+                          <div>
+                            Hybrid ISPs
+                            <OverlayTrigger
+                              placement="right"
+                              delay={{ show: 150, hide: 200 }}
+                              overlay={renderTooltip}
+                            >
+                              <i class="bi bi-info-circle p-2 text-grey"></i>
+                            </OverlayTrigger>
+                          </div>
                           <div className="text-red2">$2.45/isp</div>
                         </div>
                       </div>
@@ -391,7 +316,7 @@ function HybridProxies() {
                       </tr>
                       <tr className="pr-2">
                         <td
-                          class="bg-grey2 rounded-end-0 rounded-2"
+                          class="bg-grey3 rounded-end-0 rounded-2"
                           colSpan={3}
                         >
                           <div className="d-flex align-items-center justify-content-between">
@@ -420,14 +345,14 @@ function HybridProxies() {
                             </div>
                           </div>
                         </td>
-                        <td class="bg-grey2" colSpan={2}>
+                        <td class="bg-grey3" colSpan={2}>
                           <span className="me-2">|</span>
                           <span className="me-2">Used Today : 1.2GB</span>
                         </td>
-                        <td class="bg-grey2 rounded-start-0 rounded-3 text-end">
+                        <td class="bg-grey3 rounded-start-0 rounded-3 text-end">
                           <Button
                             onClick={() => setModalShow(true)}
-                            className="me-2 bg-cards border-0 bg-red2 rounded-3"
+                            className="me-5 bg-cards border-0 bg-red2 rounded-3"
                             style={{
                               WebkitTextFillColor: "white",
                             }}
@@ -472,7 +397,7 @@ function HybridProxies() {
                       </tr>
                       <tr>
                         <td
-                          class="bg-grey2 rounded-end-0 rounded-2"
+                          class="bg-grey3 rounded-end-0 rounded-2"
                           colSpan={3}
                         >
                           <div className="d-flex align-items-center justify-content-between">
@@ -501,12 +426,12 @@ function HybridProxies() {
                             </div>
                           </div>
                         </td>
-                        <td class="bg-grey2" colSpan={2}>
+                        <td class="bg-grey3" colSpan={2}>
                           <span className="me-2">|</span>
                           <span className="me-2">Used Today : 1.2GB</span>
                         </td>
                         <td
-                          class="bg-grey2 rounded-start-0 rounded-3"
+                          class="bg-grey3 rounded-start-0 rounded-3"
                           colSpan={1}
                         ></td>
                       </tr>
@@ -545,7 +470,7 @@ function HybridProxies() {
                       </tr>
                       <tr>
                         <td
-                          class="bg-grey2 rounded-end-0 rounded-2"
+                          class="bg-grey3 rounded-end-0 rounded-2"
                           colSpan={3}
                         >
                           <div className="d-flex align-items-center justify-content-between">
@@ -574,12 +499,12 @@ function HybridProxies() {
                             </div>
                           </div>
                         </td>
-                        <td class="bg-grey2" colSpan={2}>
+                        <td class="bg-grey3" colSpan={2}>
                           <span className="me-2">|</span>
                           <span className="me-2">Used Today : 1.2GB</span>
                         </td>
                         <td
-                          class="bg-grey2 rounded-start-0 rounded-3"
+                          class="bg-grey3 rounded-start-0 rounded-3"
                           colSpan={1}
                         ></td>
                       </tr>
@@ -624,6 +549,95 @@ function HybridProxies() {
           </div>
         </Container>
       </Container>
+
+      {/* modal for topup */}
+      <Modal
+        aria-labelledby="contained-modal-title-vcenter md-down"
+        centered
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      >
+        <Modal.Header
+          closeButton
+          className="bg-cards border-bottom-0 border border-dark "
+        >
+          <Modal.Title>Topup</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="bg-cards border border-dark ">
+          <Card className=" m-3  pt-2 p-1 modal-card text-white border-dark ">
+            <div className="d-flex  align-items-center justify-content-between">
+              <Card.Header className="border-0">
+                Data Left
+                <i
+                  class="p-1 text-grey bi bi-exclamation-circle"
+                  style={{ fontSize: "10px" }}
+                ></i>
+              </Card.Header>
+            </div>
+            <div className="d-flex justify-content-between align-items-center m-1 p-2">
+              <div>
+                <span className="text-grey">Monthly Spent</span>
+                <div style={{ fontSize: 18 }}>
+                  2.3GB
+                  <span
+                    className="ms-2 p-1 text-grey border-dark bg-grey2 rounded-2"
+                    style={{ fontSize: 12 }}
+                  >
+                    18%
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="p-1 m-2 mt-3">
+              <ProgressBar
+                variant="red2"
+                now={70}
+                style={{ height: 45, backgroundColor: "#16171B" }}
+              />
+            </div>
+          </Card>
+          <Card className="modal-card m-3 pt-2 p-1  text-white border-dark ">
+            <div className="d-flex justify-content-between align-items-center  m-1 p-2">
+              <div>
+                <span className="text-grey">Topup Amount</span>
+                <div>
+                  <select
+                    className=" modal-card text-white rounded-2 ms-0 m-2"
+                    style={{ width: 250 }}
+                  >
+                    <option className="fw-lighter ">8GB</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </Card>
+          <Card className="m-3 pt-2 p-1 modal-card text-white border-dark ">
+            <Card.Header className="border-0">Order Summary</Card.Header>
+            <div className="d-flex justify-content-between align-items-center border-bottom border-dark p-3">
+              <span className="text-grey">Total Price</span>
+              <span className="text-white " style={{ fontSize: 18 }}>
+                $45
+              </span>
+            </div>
+            <div className="d-flex justify-content-between align-items-center  m-1 p-2">
+              <div>
+                <span className="text-grey">Payment Method</span>
+                <div>
+                  <select
+                    className="modal-card text-white rounded-2 ms-0 m-2"
+                    style={{ width: 250 }}
+                  >
+                    <option className="fw-lighter ">Stripe</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <Button className=" bg-cards border-0 bg-red2 m-2 p-2">
+              Purchase
+            </Button>
+          </Card>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }
