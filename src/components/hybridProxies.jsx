@@ -111,9 +111,7 @@ function HybridProxies() {
                         style={{
                           WebkitTextFillColor: "#B1F55A",
                         }}
-                      >
-
-                      </i>
+                      ></i>
                       <div className="ms-2 " style={{ fontSize: 14 }}>
                         Proxies Copied
                         <div className="text-grey">2 min ago</div>
@@ -127,9 +125,7 @@ function HybridProxies() {
                         style={{
                           WebkitTextFillColor: "#B1F55A",
                         }}
-                      >
-
-                      </i>
+                      ></i>
                       <div className="ms-2 " style={{ fontSize: 14 }}>
                         Successfully Purchased
                         <div className="text-grey">5 min ago</div>
@@ -147,6 +143,20 @@ function HybridProxies() {
                       <div className="ms-2 " style={{ fontSize: 14 }}>
                         Error Generating Proxies
                         <div className="text-grey">8 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center  m-1 p-2 ">
+                    <div className="d-flex ">
+                      <i
+                        class="bi bi-check-circle"
+                        style={{
+                          WebkitTextFillColor: "#B1F55A",
+                        }}
+                      ></i>
+                      <div className="ms-2 " style={{ fontSize: 14 }}>
+                        Successfully Purchased
+                        <div className="text-grey">April 23</div>
                       </div>
                     </div>
                   </div>

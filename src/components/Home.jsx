@@ -60,7 +60,89 @@ function Lemon() {
               className="d-flex align-items-center pe-2 "
               style={{ fontSize: "17px" }}
             >
-              <i class="bi bi-bell p-2 text-grey"></i>
+               <i
+                class="btn bi bi-bell p-2 text-grey"
+                type="button"
+                data-toggle="dropdown"
+                aria-expanded="true"
+                x-placement="bottom-end"
+                style={{ fontSize: 14, fontStyle: "normal" }}
+              >
+                <div
+                  class="dropdown-menu dropdown-menu-right bg-cards text-white p-2 m-2 border border-dark"
+                  style={{ width: 280 }}
+                >
+                  <div className="d-flex justify-content-between align-items-center border-bottom border-dark">
+                    <span className="p-2 me-2">Notifications</span>
+                    <div
+                      className="text-grey rounded-1 border border-dark modal-card"
+                      style={{ width: "100px" }}
+                    >
+                      <i
+                        class="bi bi-check2-all ms-1 me-1"
+                        style={{ fontSize: 12 }}
+                      ></i>
+                      <span style={{ fontSize: 12 }}>Mark as Read</span>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center  m-1 p-2 ">
+                    <div className="d-flex">
+                      <i
+                        class="bi bi-check-circle"
+                        style={{
+                          WebkitTextFillColor: "#B1F55A",
+                        }}
+                      ></i>
+                      <div className="ms-2 " style={{ fontSize: 14 }}>
+                        Proxies Copied
+                        <div className="text-grey">2 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center  m-1 p-2 ">
+                    <div className="d-flex ">
+                      <i
+                        class="bi bi-check-circle"
+                        style={{
+                          WebkitTextFillColor: "#B1F55A",
+                        }}
+                      ></i>
+                      <div className="ms-2 " style={{ fontSize: 14 }}>
+                        Successfully Purchased
+                        <div className="text-grey">5 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center  m-1 p-2 ">
+                    <div className="d-flex ">
+                      <i
+                        class="bi bi-x-circle"
+                        style={{
+                          WebkitTextFillColor: "#FA5555",
+                        }}
+                      ></i>
+                      <div className="ms-2 " style={{ fontSize: 14 }}>
+                        Error Generating Proxies
+                        <div className="text-grey">8 min ago</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center  m-1 p-2 ">
+                    <div className="d-flex ">
+                      <i
+                        class="bi bi-check-circle"
+                        style={{
+                          WebkitTextFillColor: "#B1F55A",
+                        }}
+                      ></i>
+                      <div className="ms-2 " style={{ fontSize: 14 }}>
+                        Successfully Purchased
+                        <div className="text-grey">April 23</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </i>
               <Button className="bg-grey2 border border-dark">
                 <i class="bi bi-database "></i>
                 <span className="ps-2">$78,54</span>
