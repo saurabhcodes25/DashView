@@ -14,10 +14,18 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+try {
+  const connectionInstance = await mongoose.connect(
+    `${process.env.MONGODB_URI}`,
+  );
+  console.log(
+    "\nMongodb connected!!DB HOST:",
+    connectionInstance.connection.host,
+  );
+} catch (error) {
+  console.error("Mongodb connection Error:", error);
+  process.exit(1);
+}
 
 const userSchema = new mongoose.Schema({
   username: String,
