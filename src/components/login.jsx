@@ -44,7 +44,7 @@ function Login() {
             </div>
           </Form.Group>
         </Form>
-        <Form.Group className="mx-auto pb-3">
+        <Form.Group className="pb-3">
           <Button
             className="w-100 border-0"
             type="submit"

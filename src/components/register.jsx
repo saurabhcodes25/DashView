@@ -6,7 +6,11 @@ function Register() {
   const [showPass, setShowPass] = useState(false);
   const togglePass = () => setShowPass(!showPass);
   return (
-    <Container fluid className="border border-dark bg-dark2" style={{ height: "100vh" }}>
+    <Container
+      fluid
+      className="border border-dark bg-dark2"
+      style={{ height: "100vh" }}
+    >
       <Container
         className=" mt-5 w-25 form-container border border-dark rounded-3  bg-cards "
         style={{ width: "30%" }}
@@ -39,6 +43,7 @@ function Register() {
           <Form.Group className="  pb-3">
             <Form.Label>Email Address</Form.Label>
             <Form.Control
+              type="email"
               placeholder="Email Address"
               className="button-bg border-0 text-white"
             />
@@ -51,22 +56,23 @@ function Register() {
                 placeholder="Password"
                 className="button-bg border-0 text-white rounded-end-0"
               />
-              <i 
-              onClick={togglePass}
-              class=" rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"></i>
+              <i
+                onClick={togglePass}
+                class=" rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"
+              ></i>
             </div>
           </Form.Group>
-          <Form.Group className="mx-auto  pb-3 ">
-            <Button
-              className="w-100 border-0"
-              type="submit"
-              style={{
-                backgroundColor: "#EC532D",
-              }}
-            >
-              Register
-            </Button>
-          </Form.Group>
+          <Form.Group className=" pb-3">
+          <Button
+            className="w-100 border-0"
+            type="submit"
+            style={{
+              backgroundColor: "#EC532D",
+            }}
+          >
+            Register
+          </Button>
+        </Form.Group>
         </Form>
       </Container>
     </Container>

@@ -184,13 +184,13 @@ function HybridProxies() {
               <Col md={3} className="border-end border-dark">
                 <div className="">
                   <Card
-                    className="mt-3 m-4  pt-2 p-1 bg-cards text-white border-dark  "
+                    className="mb-3 mt-3 m-4  pt-2 p-1 bg-cards text-white border-dark  "
                     style={{ width: "300px", height: "480px" }}
                   >
                     <Card.Header className="border-0">
                       Purchase Plans
                     </Card.Header>
-                    <div className="d-flex justify-content-between align-items-center  m-1 p-2 ps-1">
+                    <div className="d-flex justify-content-between align-items-center pb-0 mb-0 m-1 p-2 ps-1">
                       <div>
                         <span className="text-grey">Location</span>
                         <div>
@@ -214,7 +214,7 @@ function HybridProxies() {
                         </div>
                       </div>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center m-1 p-2 border-bottom border-dark">
+                    <div className="d-flex justify-content-between align-items-center m-1 pt-0 p-2 border-bottom border-dark">
                       <div>
                         <span className="text-grey">Length</span>
                         <div>
@@ -298,10 +298,10 @@ function HybridProxies() {
                     </div>
                   </Card>
                   <Card
-                    className="mt-3 m-4 pt-2 p-1 bg-cards text-white border-dark "
+                    className="mt-1 m-4 pt-2 p-1 bg-cards text-white border-dark "
                     style={{ width: "300px" }}
                   >
-                    <Card.Header className="border-0">
+                    <Card.Header className="border-0 pb-0">
                       Order Summary
                     </Card.Header>
                     <div className="d-flex justify-content-between align-items-center border-bottom border-dark p-3">
@@ -310,7 +310,7 @@ function HybridProxies() {
                         $45
                       </span>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center  m-1 p-2">
+                    <div className="d-flex justify-content-between align-items-center mb-0 m-1 p-2">
                       <div>
                         <span className="text-grey">Payment Method</span>
                         <div>
