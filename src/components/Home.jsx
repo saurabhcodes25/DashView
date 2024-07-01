@@ -17,24 +17,56 @@ import { useState } from "react";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useParams } from "react-router";
+import axios from "axios";
 
 function Lemon() {
   const [copied, setCopied] = useState(false);
 
   let { id } = useParams();
+  const navigate = useNavigate();
 
   const handleCopy = () => {
     setCopied(true);
     // setTimeout(() => setCopied(false), 2000);
+  };
+  const handleDelete = () => {
+    axios
+      .post("http://localhost:5000/delete", { user_id: id })
+      .then(function (response) {
+        toast(`${response.data.message}`, {
+          className: "popup-background",
+          progressClassName: "progress-background",
+          position: "top-right",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      })
+      .catch(function (error) {
+        toast("Error", {
+          className: "popup-background",
+          progressClassName: "progress-background",
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      });
   };
   const notify = () => {
     toast("Downloaded Successfully!", {
       className: "popup-background",
       progressClassName: "progress-background",
       position: "top-right",
-      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -75,7 +107,6 @@ function Lemon() {
                   <Link
                     to={`/update/${id}`}
                     className="btn border-0 p-0 text-grey"
-            
                   >
                     <i
                       class="bi bi-pencil-square"
@@ -84,7 +115,11 @@ function Lemon() {
                   </Link>
                 </div>
                 <div className="">
-                  <Link to={"/delete"} className="btn border-0 p-0 text-grey">
+                  <Link
+                    to={`/delete`}
+                    className="btn border-0 p-0 text-grey"
+                    onClick={handleDelete}
+                  >
                     <i class="bi bi-trash" style={{ fontSize: "14px" }}></i>
                   </Link>
                 </div>
@@ -593,7 +628,7 @@ function Lemon() {
 
           <div className="text-end ">
             <Link
-              to={"/hybrid"}
+              to={`/hybrid/${id}`}
               className="btn border-0 text-white mb-3 mt-1 me-3"
               style={{ backgroundColor: "#EC532D" }}
             >

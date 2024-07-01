@@ -2,7 +2,9 @@ import { Container, Form, Button, Image } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import img from "../assets/pfp.jpeg";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Update() {
   const [showPass, setShowPass] = useState(false);
@@ -12,6 +14,7 @@ function Update() {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   let { id } = useParams();
   const togglePass = () => setShowPass(!showPass);
@@ -25,98 +28,126 @@ function Update() {
     e.preventDefault();
     formData["user_id"] = id;
     console.log(formData);
-    axios.put("http://localhost:5000/edit", formData)
-    .then(function(response){
-      alert(response.data.message)
-    })
-    .catch(function(error){
-      alert(error)
-    })
+    axios
+      .put("http://localhost:5000/update", formData)
+      .then(function (response) {
+        toast(`${response.data.message}`, {
+          className: "popup-background",
+          progressClassName: "progress-background",
+          position: "top-right",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setTimeout(() => {
+          navigate(`/home/${id}`);
+        }, 2000);
+      })
+      .catch(function (error) {
+        toast(`${error}`, {
+          className: "popup-background",
+          progressClassName: "progress-background",
+          position: "top-right",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      });
   };
 
   return (
-    <Container
-      fluid
-      className="border border-dark bg-dark2"
-      style={{ height: "100vh" }}
-    >
+    <>
+      <ToastContainer />
+      <ToastContainer />
       <Container
-        className="mt-5 w-25 form-container border border-dark rounded-3 bg-cards"
-        style={{ width: "30%" }}
+        fluid
+        className="border border-dark bg-dark2"
+        style={{ height: "100vh" }}
       >
-        <div className="text-center">
-          <Image
-            src={img}
-            height="100px"
-            className="m-2 p-3 centered rounded-5"
-          />
-          <br></br>
-          <Form.Label className="fs-3 fw-bold">Edit Profile</Form.Label>
-        </div>
+        <Container
+          className="mt-5 w-25 form-container border border-dark rounded-3 bg-cards"
+          style={{ width: "30%" }}
+        >
+          <div className="text-center">
+            <Image
+              src={img}
+              height="100px"
+              className="m-2 p-3 centered rounded-5"
+            />
+            <br></br>
+            <Form.Label className="fs-3 fw-bold">Edit Profile</Form.Label>
+          </div>
 
-        <Form className="p-3" onSubmit={handleSubmit}>
-          <Form.Group className="pb-3">
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              name="username"
-              placeholder="Username"
-              className="button-bg border-0 text-white"
-              value={formData.username}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Form.Group className="pb-3">
-            <Form.Label>Full Name</Form.Label>
-            <Form.Control
-              name="fullName"
-              placeholder="Full Name"
-              className="button-bg border-0 text-white"
-              value={formData.fullName}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Form.Group className="pb-3">
-            <Form.Label>Email Address</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              className="button-bg border-0 text-white"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Form.Group className="pb-3">
-            <Form.Label>Password</Form.Label>
-            <div className="d-flex">
+          <Form className="p-3" onSubmit={handleSubmit}>
+            <Form.Group className="pb-3">
+              <Form.Label>Username</Form.Label>
               <Form.Control
-                type={showPass ? "text" : "password"}
-                name="password"
-                placeholder="Password"
-                className="button-bg border-0 text-white rounded-end-0"
-                value={formData.password}
+                name="username"
+                placeholder="Username"
+                className="button-bg border-0 text-white"
+                value={formData.username}
                 onChange={handleChange}
               />
-              <i
-                onClick={togglePass}
-                className="rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"
-              ></i>
-            </div>
-          </Form.Group>
-          <Form.Group className="pb-3">
-            <Button
-              className="w-100 border-0"
-              type="submit"
-              style={{
-                backgroundColor: "#EC532D",
-              }}
-            >
-              Update
-            </Button>
-          </Form.Group>
-        </Form>
+            </Form.Group>
+            <Form.Group className="pb-3">
+              <Form.Label>Full Name</Form.Label>
+              <Form.Control
+                name="fullName"
+                placeholder="Full Name"
+                className="button-bg border-0 text-white"
+                value={formData.fullName}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group className="pb-3">
+              <Form.Label>Email Address</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                className="button-bg border-0 text-white"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group className="pb-3">
+              <Form.Label>Password</Form.Label>
+              <div className="d-flex">
+                <Form.Control
+                  type={showPass ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  className="button-bg border-0 text-white rounded-end-0"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                <i
+                  onClick={togglePass}
+                  className="rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"
+                ></i>
+              </div>
+            </Form.Group>
+            <Form.Group className="pb-3">
+              <Button
+                className="w-100 border-0"
+                type="submit"
+                style={{
+                  backgroundColor: "#EC532D",
+                }}
+              >
+                Update
+              </Button>
+            </Form.Group>
+          </Form>
+        </Container>
       </Container>
-    </Container>
+    </>
   );
 }
 

@@ -3,7 +3,8 @@ import img from "../assets/pfp.jpeg";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Login() {
   const [showPass, setShowPass] = useState(false);
   const [formData, setFormData] = useState({
@@ -26,17 +27,42 @@ function Login() {
         "http://localhost:5000/login",
         formData
       );
-      alert(response.data.message);
+      toast(`${response.data.message}`, {
+        className: "popup-background",
+        progressClassName: "progress-background",
+        position: "top-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       if (response.status === 200) {
-        
-        navigate(`/home/${response.data.userId}`);
+        setTimeout(() => {
+          navigate(`/home/${response.data.userId}`);
+        }, 2000);
       }
     } catch (error) {
-      alert("Error logging in");
+      toast("Error logging in", {
+        className: "popup-background",
+        progressClassName: "progress-background",
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 
   return (
+    <>
+    <ToastContainer />
+    <ToastContainer />
     <Container
       fluid
       className="border border-dark bg-dark2"
@@ -100,6 +126,7 @@ function Login() {
         </Form>
       </Container>
     </Container>
+    </>
   );
 }
 

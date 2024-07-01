@@ -17,9 +17,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home/:id" element={<Lemon />} />
-          <Route path="/hybrid" element={<HybridProxies />} />
+          <Route path="/hybrid/:id" element={<HybridProxies />} />
           <Route path="/register" element={<Register />} />
           <Route path="/update/:id" element={<Update />} />
+          <Route path="/delete/" element={<Login />} />
           {/* <Route path="/grid" element={<Grid />} /> */}
           {/* <Route path="/flex" element={<Flex />} /> */}
         </Routes>

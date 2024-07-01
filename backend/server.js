@@ -79,7 +79,7 @@ app.post('/login', async (req, res) => {
 });
 
 // Update endpoint
-app.put('/edit', async (req, res) => {
+app.put('/update', async (req, res) => {
   const { user_id, username, fullName, email, password } = req.body;
   const newPass = bcrypt.hash(password, 10);
   try {
@@ -87,7 +87,6 @@ app.put('/edit', async (req, res) => {
       { '_id': user_id }, { $set: { username, fullName, email, newPass } }, { new: true }
 
     );
-    console.log(user)
 
     if (!user) {
       return res.status(404).send('User not found');
@@ -100,10 +99,17 @@ app.put('/edit', async (req, res) => {
 
 });
 
-//delete endpoint
+// delete endpoint
 
 app.post('/delete', async (req, res) => {
-  const { user_id, username, fullName, email, password } = req.body;
+  const user_id = req.body.user_id;
+  try {
+    const user = await User.findOneAndDelete({ '_id': user_id });
+    res.status(200).json({ message: 'User deleted successfully' });
+
+  } catch (error) {
+    res.status(400).send('Error deleting user');
+  }
 
 })
 
