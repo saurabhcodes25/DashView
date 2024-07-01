@@ -14,7 +14,7 @@ import {
   OverlayTrigger,
 } from "react-bootstrap";
 import pfp from "../assets/pfp.jpeg";
-import { useState ,React} from "react";
+import { useState, React } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -49,6 +49,7 @@ function HybridProxies() {
       theme: "colored",
     });
   };
+  
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Text goes here
@@ -78,8 +79,13 @@ function HybridProxies() {
             <div
               className="d-flex align-items-center pe-2 "
               style={{ fontSize: "17px" }}
+            > 
+            <Button 
+            className="border-0 p-0 m-0 bg-dark2"
+            onClick={notify}
             >
               <i class="bi bi-bell p-2 text-grey"></i>
+            </Button>
               <Button className="bg-grey2 border border-dark">
                 <i class="bi bi-database "></i>
                 <span className="ps-2">$78,54</span>
@@ -96,23 +102,23 @@ function HybridProxies() {
             style={{ maxHeight: "90%" }}
           >
             {/* card1 */}
-            <Row className="  ">
-              <Col md={3} className=" border-end border-dark">
-                <div className="">
+            <Row className="">
+              <Col md={3} className="pr-0  border-end border-dark">
+                <div className="m-0">
                   <Card
-                    className="mr-0 m-3  pt-2 p-1 bg-cards text-white border-dark "
+                    className="mr-0 m-3  pt-2 p-1 bg-cards text-white border-dark  "
                     style={{ width: "300px", height: "480px" }}
                   >
                     <Card.Header className="border-0">
                       Purchase Plans
                     </Card.Header>
-                    <div className="d-flex justify-content-between align-items-center  m-1 p-2">
+                    <div className="d-flex justify-content-between align-items-center  m-1 p-2 ps-1">
                       <div>
                         <span className="text-grey">Location</span>
                         <div>
                           <select
-                            className="bg-cards text-white rounded-2 ms-0 m-2"
-                            style={{ width: 125 }}
+                            className="bg-cards text-white rounded-2 ms-0 m-2 ps-1"
+                            style={{ width: 125, fontSize: 14 }}
                           >
                             <option className="fw-lighter ">Italy</option>
                           </select>
@@ -122,8 +128,8 @@ function HybridProxies() {
                         <span className="text-grey">Data</span>
                         <div>
                           <select
-                            className="bg-cards text-white rounded-2 ms-0 m-2"
-                            style={{ width: 125 }}
+                            className="bg-cards text-white rounded-2 ms-0 m-2 ps-1"
+                            style={{ width: 125, fontSize: 14 }}
                           >
                             <option className="fw-lighter">10GB</option>
                           </select>
@@ -135,11 +141,11 @@ function HybridProxies() {
                         <span className="text-grey">Length</span>
                         <div>
                           <select
-                            className="bg-cards text-white  rounded-2 ms-0 m-2"
-                            style={{ width: 125 }}
+                            className="bg-cards text-white  rounded-2 ms-0 m-2 ps-1"
+                            style={{ width: 125, fontSize: 14 }}
                           >
                             <option className="fw-lighter bg-cards">
-                              30Days
+                              30 days
                             </option>
                           </select>
                         </div>
@@ -148,8 +154,8 @@ function HybridProxies() {
                         <span className="text-grey">Quantity</span>
                         <div>
                           <select
-                            className="bg-cards text-white rounded-2 ms-0 m-2 "
-                            style={{ width: 125 }}
+                            className="bg-cards text-white rounded-2 ms-0 m-2 ps-1 "
+                            style={{ width: 125, fontSize: 14 }}
                           >
                             <option className="fw-lighter">255</option>
                           </select>
@@ -158,7 +164,11 @@ function HybridProxies() {
                     </div>
                     <div className="d-flex justify-content-between align-items-center  m-1 p-2 ">
                       <div className="d-flex ">
-                        <Image src={pfp} height="40px" className="center" />
+                        <Image
+                          src={pfp}
+                          height="40px"
+                          className="center rounded-2"
+                        />
                         <div className="ms-2 " style={{ fontSize: 14 }}>
                           <div>
                             Hybrid ISPs
@@ -239,7 +249,6 @@ function HybridProxies() {
                       onClick={notifyPur}
                       className=" bg-cards border-0 bg-red2 m-2 p-2"
                     >
-                      
                       Purchase
                     </Button>
                   </Card>
@@ -268,7 +277,7 @@ function HybridProxies() {
                   </div>
 
                   <Table
-                    className=" table-info"
+                    className=" table-info m-1"
                     style={{
                       WebkitTextFillColor: "white",
                       borderColor: "#16171B",
@@ -365,12 +374,13 @@ function HybridProxies() {
                           <span className="me-2">|</span>
                           <span className="">Used Today : 1.2GB</span>
                         </td>
-                        <td class="bg-grey3 rounded-start-0 rounded-3 text-end">
+                        <td class="bg-grey3 rounded-start-0 rounded-3 text-between">
                           <Button
                             onClick={() => setModalShow(true)}
-                            className="me-5 bg-cards border-0 bg-red2 rounded-3"
+                            className=" bg-cards border-0 bg-red2 rounded-3"
                             style={{
                               WebkitTextFillColor: "white",
+                              marginInlineStart: "94px",
                             }}
                           >
                             Topup
@@ -573,7 +583,7 @@ function HybridProxies() {
       >
         <Modal.Header
           closeButton
-          className="bg-cards border-bottom-0 border border-dark "
+          className=" text-white bg-cards border-bottom-0 border border-dark p-2"
         >
           <Modal.Title style={{ fontSize: 16 }}>Topup</Modal.Title>
         </Modal.Header>
@@ -603,9 +613,7 @@ function HybridProxies() {
               />
             </div>
           </Card>
-          <div className="border-bottom border-dark mt-3 mb-3">
-
-          </div>
+          <div className="border-bottom border-dark mt-3 mb-3"></div>
           <Card className="modal-card mt-2 m-1 pt-2 p-1  text-white border-dark rounded-3 ">
             <div className="d-flex justify-content-between align-items-center  m-1 p-2">
               <div>

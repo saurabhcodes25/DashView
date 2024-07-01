@@ -176,7 +176,7 @@ function Lemon() {
 
                 <div className="d-flex m-2 ps-2 pe-2 justify-content-between">
                   <div className="d-flex ">
-                    <Image src={pfp} height="40px" className="center" />
+                    <Image src={pfp} height="40px" className="center rounded-2" />
                     <div className="ms-2 " style={{ fontSize: 14 }}>
                       <div>TheDuke</div>
                       <div className="text-grey">On General</div>
