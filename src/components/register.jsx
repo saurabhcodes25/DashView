@@ -1,10 +1,34 @@
 import { Container, Form, Button, Image } from "react-bootstrap";
 import { useState } from "react";
+import axios from 'axios';
 import img from "../assets/pfp.jpeg";
 
 function Register() {
   const [showPass, setShowPass] = useState(false);
+  const [formData, setFormData] = useState({
+    username: '',
+    fullName: '',
+    email: '',
+    password: '',
+  });
+
   const togglePass = () => setShowPass(!showPass);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/register', formData);
+      alert(response.data);
+    } catch (error) {
+      alert('Error registering user');
+    }
+  };
+
   return (
     <Container
       fluid
@@ -25,27 +49,36 @@ function Register() {
           <Form.Label className="fs-3 fw-bold">Register</Form.Label>
         </div>
 
-        <Form className="p-3">
+        <Form className="p-3" onSubmit={handleSubmit}>
           <Form.Group className="  pb-3">
             <Form.Label>Username</Form.Label>
             <Form.Control
+              name="username"
               placeholder="Username"
               className="button-bg border-0 text-white"
+              value={formData.username}
+              onChange={handleChange}
             />
           </Form.Group>
           <Form.Group className="  pb-3">
             <Form.Label>Full Name</Form.Label>
             <Form.Control
+              name="fullName"
               placeholder="Full Name"
               className="button-bg border-0 text-white"
+              value={formData.fullName}
+              onChange={handleChange}
             />
           </Form.Group>
           <Form.Group className="  pb-3">
             <Form.Label>Email Address</Form.Label>
             <Form.Control
               type="email"
+              name="email"
               placeholder="Email Address"
               className="button-bg border-0 text-white"
+              value={formData.email}
+              onChange={handleChange}
             />
           </Form.Group>
           <Form.Group className=" pb-3">
@@ -53,26 +86,29 @@ function Register() {
             <div className="d-flex">
               <Form.Control
                 type={showPass ? "text" : "password"}
+                name="password"
                 placeholder="Password"
                 className="button-bg border-0 text-white rounded-end-0"
+                value={formData.password}
+                onChange={handleChange}
               />
               <i
                 onClick={togglePass}
-                class=" rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"
+                className=" rounded-start-0 button-bg rounded-2 text-white btn bi bi-eye"
               ></i>
             </div>
           </Form.Group>
           <Form.Group className=" pb-3">
-          <Button
-            className="w-100 border-0"
-            type="submit"
-            style={{
-              backgroundColor: "#EC532D",
-            }}
-          >
-            Register
-          </Button>
-        </Form.Group>
+            <Button
+              className="w-100 border-0"
+              type="submit"
+              style={{
+                backgroundColor: "#EC532D",
+              }}
+            >
+              Register
+            </Button>
+          </Form.Group>
         </Form>
       </Container>
     </Container>
