@@ -239,6 +239,7 @@ function HybridProxies() {
                       onClick={notifyPur}
                       className=" bg-cards border-0 bg-red2 m-2 p-2"
                     >
+                      
                       Purchase
                     </Button>
                   </Card>
