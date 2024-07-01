@@ -27,6 +27,7 @@ function Lemon() {
   let { id } = useParams();
   const handleCopy = () => {
     setCopied(true);
+    
     // setTimeout(() => setCopied(false), 2000);
   };
   const handleDelete = () => {
