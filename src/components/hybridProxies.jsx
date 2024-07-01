@@ -88,13 +88,13 @@ function HybridProxies() {
                 style={{ fontSize: 14, fontStyle: "normal" }}
               >
                 <div
-                  class="dropdown-menu dropdown-menu-right bg-cards text-white p-2 m-2 border border-dark"
+                  class="dropdown-menu dropdown-menu-right bg-cards text-white p-2 m-2 border border-2 border-dark"
                   style={{ width: 280 }}
                 >
-                  <div className="d-flex justify-content-between align-items-center border-bottom border-dark">
+                  <div className="d-flex justify-content-between align-items-center border-2">
                     <span className="p-2 me-2">Notifications</span>
                     <div
-                      className="text-grey rounded-1 border border-dark modal-card"
+                      className="text-grey rounded-2 border border-dark modal-card"
                       style={{ width: "100px" }}
                     >
                       <i
@@ -104,7 +104,9 @@ function HybridProxies() {
                       <span style={{ fontSize: 12 }}>Mark as Read</span>
                     </div>
                   </div>
-                  <div className="d-flex justify-content-between align-items-center  m-1 p-2 ">
+                  <div className="w-100 border-bottom border-2 border-dark"></div>
+
+                  <div className="d-flex justify-content-between align-items-center m-1 p-2 ">
                     <div className="d-flex">
                       <i
                         class="bi bi-check-circle"
@@ -179,10 +181,10 @@ function HybridProxies() {
           >
             {/* card1 */}
             <Row className="">
-              <Col md={3} className="pr-0  border-end border-dark">
-                <div className="m-0">
+              <Col md={3} className="border-end border-dark">
+                <div className="">
                   <Card
-                    className="mr-0 m-3  pt-2 p-1 bg-cards text-white border-dark  "
+                    className="mt-3 m-4  pt-2 p-1 bg-cards text-white border-dark  "
                     style={{ width: "300px", height: "480px" }}
                   >
                     <Card.Header className="border-0">
@@ -296,7 +298,7 @@ function HybridProxies() {
                     </div>
                   </Card>
                   <Card
-                    className="m-3 pt-2 p-1 bg-cards text-white border-dark "
+                    className="mt-3 m-4 pt-2 p-1 bg-cards text-white border-dark "
                     style={{ width: "300px" }}
                   >
                     <Card.Header className="border-0">
@@ -333,7 +335,7 @@ function HybridProxies() {
               <Col md={9}>
                 {/* card3 */}
                 <Card
-                  className=" ms-0 me-2 m-3  p-1 bg-cards text-white border-dark"
+                  className=" ms-0 mt-3 me-2  p-1 bg-cards text-white border-dark"
                   // style={{ width: "100%" }}
                 >
                   <div className="d-flex align-items-center justify-content-between border-bottom border-dark">
@@ -659,11 +661,11 @@ function HybridProxies() {
       >
         <Modal.Header
           closeButton
-          className=" text-white bg-cards border-bottom-0 border border-dark p-2"
+          className=" text-white bg-cards border-bottom-0 border border-2 border-dark p-2"
         >
           <Modal.Title style={{ fontSize: 16 }}>Topup</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="bg-cards border border-dark ">
+        <Modal.Body className="bg-cards border border-2 border-dark rounded-top-0 rounded-2 ">
           <Card className=" mt-2 m-1 pt-2 p-1 modal-card text-white border-dark rounded-3">
             <div className="d-flex  align-items-center justify-content-between">
               <Card.Header className="border-0">Data Left</Card.Header>

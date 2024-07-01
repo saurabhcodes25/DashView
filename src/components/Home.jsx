@@ -9,6 +9,8 @@ import {
   Image,
   ListGroup,
   Table,
+  Tooltip,
+  OverlayTrigger,
 } from "react-bootstrap";
 import pfp from "../assets/pfp.jpeg";
 import { useState } from "react";
@@ -37,6 +39,11 @@ function Lemon() {
       theme: "colored",
     });
   };
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Text goes here
+    </Tooltip>
+  );
   return (
     <>
       <ToastContainer />
@@ -60,7 +67,7 @@ function Lemon() {
               className="d-flex align-items-center pe-2 "
               style={{ fontSize: "17px" }}
             >
-               <i
+              <i
                 class="btn bi bi-bell p-2 text-grey"
                 type="button"
                 data-toggle="dropdown"
@@ -192,15 +199,25 @@ function Lemon() {
                   </div>
                   <div className="ps-2">
                     <span className="text-grey">Gold</span>
-                    <i
-                      class="p-1 text-grey bi bi-exclamation-circle"
-                      style={{ fontSize: "10px" }}
-                    ></i>
+                    <OverlayTrigger
+                      placement="right"
+                      delay={{ show: 150, hide: 200 }}
+                      overlay={renderTooltip}
+                    >
+                      <i
+                        class="bi bi-info-circle p-2 text-grey"
+                        style={{ fontSize: "10px" }}
+                      ></i>
+                    </OverlayTrigger>
                     <div style={{ fontSize: 18 }}>$275.00</div>
                   </div>
                 </div>
                 <div className="p-1 m-2 mt-3">
-                <ProgressBar variant="red2" now={70} style={{ height: 45, backgroundColor:"#16171B"}}/>
+                  <ProgressBar
+                    variant="red2"
+                    now={70}
+                    style={{ height: 45, backgroundColor: "#16171B" }}
+                  />
                 </div>
                 <div className="border-0 mt-2" style={{ fontSize: 14 }}>
                   <InputGroup className="bg-cards p-2 mt-2 text-white">
@@ -258,7 +275,11 @@ function Lemon() {
 
                 <div className="d-flex m-2 ps-2 pe-2 justify-content-between">
                   <div className="d-flex ">
-                    <Image src={pfp} height="40px" className="center rounded-2" />
+                    <Image
+                      src={pfp}
+                      height="40px"
+                      className="center rounded-2"
+                    />
                     <div className="ms-2 " style={{ fontSize: 14 }}>
                       <div>TheDuke</div>
                       <div className="text-grey">On General</div>
