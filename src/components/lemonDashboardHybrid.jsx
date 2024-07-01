@@ -128,7 +128,6 @@ function HybridProxies() {
   return (
     <>
       <MyModal show={modalShow} onHide={() => setModalShow(false)} />
-      ;
       <ToastContainer />
       <ToastContainer />
       <Container fluid className="border bg-dark2" style={{ height: "100vh" }}>
@@ -164,12 +163,12 @@ function HybridProxies() {
           </Container>
 
           <div
-            className=" overflow-y-scroll  overflow-x-hidden"
+            className=" overflow-y-scroll overflow-x-hidden"
             style={{ maxHeight: "90%" }}
           >
             {/* card1 */}
-            <Row className="">
-              <Col md={3} className=" border-end border-dark ">
+            <Row className="  ">
+              <Col md={3} className=" border-end border-dark">
                 <div className="">
                   <Card
                     className="m-3  pt-2 p-1 bg-cards text-white border-dark "
@@ -306,18 +305,18 @@ function HybridProxies() {
               </Col>
               <Col md={8}>
                 {/* card3 */}
-                <Card className="m-3  pt-2 p-1 bg-cards text-white border-dark ">
-                  <div
-                    className="d-flex align-items-center justify-content-between border-bottom border-dark
-                  "
-                  >
+                <Card
+                  className=" m-3 pt-2 p-1 bg-cards text-white border-dark"
+                  style={{ width: "100%" }}
+                >
+                  <div className="d-flex align-items-center justify-content-between border-bottom border-dark">
                     <Card.Header className="">Your Orders</Card.Header>
                     <InputGroup
                       className="p-2 m-2 bg-cards text-grey"
                       style={{ width: 250 }}
                     >
                       <Form.Control
-                        className="text-white bg-cards border-end-0 border-dark"
+                        className="text-grey bg-cards border-end-0 border-dark"
                         placeholder="Search Orders"
                       />
                       <InputGroup.Text className=" buttons-ani bg-cards border-dark text-grey">
@@ -428,7 +427,7 @@ function HybridProxies() {
                         <td class="bg-grey2 rounded-start-0 rounded-3 text-end">
                           <Button
                             onClick={() => setModalShow(true)}
-                            className=" bg-cards border-0 bg-red2 rounded-3 "
+                            className="me-2 bg-cards border-0 bg-red2 rounded-3"
                             style={{
                               WebkitTextFillColor: "white",
                             }}
