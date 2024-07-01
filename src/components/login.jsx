@@ -61,71 +61,71 @@ function Login() {
 
   return (
     <>
-    <ToastContainer />
-    <ToastContainer />
-    <Container
-      fluid
-      className="border border-dark bg-dark2"
-      style={{ height: "100vh" }}
-    >
+      <ToastContainer />
+      <ToastContainer />
       <Container
-        className="mt-5 w-25 form-container bg-cards border rounded-3 border-dark"
-        style={{ width: "30%" }}
+        fluid
+        className="border border-dark bg-dark2"
+        style={{ height: "100vh" }}
       >
-        <div className="text-center">
-          <Image
-            src={img}
-            height="100px"
-            className="m-2 p-3 centered rounded-5"
-          />
-          <br />
-          <Form.Label className="fs-3 fw-bold">Login</Form.Label>
-        </div>
-        <Form className="p-3" onSubmit={handleSubmit}>
-          <Form.Group className="pb-3">
-            <Form.Label>Username/Email</Form.Label>
-            <Form.Control
-              className="button-bg border-0 text-white"
-              placeholder="Username or Email"
-              name="usernameOrEmail"
-              value={formData.usernameOrEmail}
-              onChange={handleChange}
+        <Container
+          className="mt-5 w-25 form-container bg-cards border rounded-3 border-dark"
+          style={{ width: "30%" }}
+        >
+          <div className="text-center">
+            <Image
+              src={img}
+              height="100px"
+              className="m-2 p-3 centered rounded-5"
             />
-          </Form.Group>
-          <Form.Group className="pb-3">
-            <Form.Label>Password</Form.Label>
-            <div className="d-flex">
+            <br />
+            <Form.Label className="fs-3 fw-bold">Login</Form.Label>
+          </div>
+          <Form className="p-3" onSubmit={handleSubmit}>
+            <Form.Group className="pb-3">
+              <Form.Label>Username/Email</Form.Label>
               <Form.Control
-                type={showPass ? "text" : "password"}
-                placeholder="Password"
-                className="button-bg border-0 text-white rounded-end-0"
-                name="password"
-                value={formData.password}
+                className="button-bg border-0 text-white"
+                placeholder="Username or Email"
+                name="usernameOrEmail"
+                value={formData.usernameOrEmail}
                 onChange={handleChange}
               />
-              <i
-                onClick={togglePass}
-                className="rounded-start-0 rounded-2 button-bg text-white btn bi bi-eye"
-              ></i>
+            </Form.Group>
+            <Form.Group className="pb-3">
+              <Form.Label>Password</Form.Label>
+              <div className="d-flex">
+                <Form.Control
+                  type={showPass ? "text" : "password"}
+                  placeholder="Password"
+                  className="button-bg border-0 text-white rounded-end-0"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                <i
+                  onClick={togglePass}
+                  className="rounded-start-0 rounded-2 button-bg text-white btn bi bi-eye"
+                ></i>
+              </div>
+            </Form.Group>
+            <Form.Group className="pb-3">
+              <Button
+                className="w-100 border-0"
+                type="submit"
+                style={{ backgroundColor: "#EC532D" }}
+              >
+                Login
+              </Button>
+            </Form.Group>
+            <div className="text-center" style={{ fontSize: 14 }}>
+              <Link to={"/register"} className="border-0 text-grey  my-2 me-3">
+                Not a member? Register
+              </Link>
             </div>
-          </Form.Group>
-          <Form.Group className="pb-3">
-            <Button
-              className="w-100 border-0"
-              type="submit"
-              style={{ backgroundColor: "#EC532D" }}
-            >
-              Login
-            </Button>
-          </Form.Group>
-          <div className="text-center" style={{ fontSize: 14 }}>
-            <Link to={"/register"} className="border-0 text-grey  my-2 me-3">
-              Not a member? Register
-            </Link>
-          </div>
-        </Form>
+          </Form>
+        </Container>
       </Container>
-    </Container>
     </>
   );
 }

@@ -12,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+//MongoDB connection
 try {
   const connectionInstance = await mongoose.connect(
     `${process.env.MONGODB_URI}/${process.env.dbname}`,
@@ -27,14 +28,12 @@ try {
   process.exit(1);
 }
 
+//User Schema
 const userSchema = new mongoose.Schema({
   username: String,
   fullName: String,
   email: String,
   password: String,
-  // isDeleted:{
-  //   default:false,
-  // }
 });
 
 const User = mongoose.model('User', userSchema);
@@ -99,7 +98,7 @@ app.put('/update', async (req, res) => {
 
 });
 
-// delete endpoint
+// Delete endpoint
 
 app.post('/delete', async (req, res) => {
   const user_id = req.body.user_id;
@@ -111,7 +110,7 @@ app.post('/delete', async (req, res) => {
     res.status(400).send('Error deleting user');
   }
 
-})
+});
 
 app.listen(process.env.PORT || 8000, () => {
   console.log(`Server running on port ${process.env.PORT}`);

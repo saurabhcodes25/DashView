@@ -7,84 +7,82 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.text-red2{
- -webkit-text-fill-color:#CF5039!important;
+.text-red2 {
+  -webkit-text-fill-color: #cf5039 !important;
 }
-.text-grey{
-  color: #7E7F83 !important;
+.text-grey {
+  color: #7e7f83 !important;
 }
-.bg-grey2{
-  background-color:  #262A30 !important;
+.bg-grey2 {
+  background-color: #262a30 !important;
 }
-.bg-grey3{
-  background-color: #1B1C20 !important;
+.bg-grey3 {
+  background-color: #1b1c20 !important;
 }
-.bg-dark2{
-  background-color:#111214 !important;
+.bg-dark2 {
+  background-color: #111214 !important;
 }
-.border-gray2{
+.border-gray2 {
   border-color: #2e3033 !important;
 }
-.border-gray3{
-  border-color: #494C50 !important;
+.border-gray3 {
+  border-color: #494c50 !important;
 }
-.bg-cards{
-background-color: #16171B !important;
+.bg-cards {
+  background-color: #16171b !important;
 }
-.bg-red2{
-  background-color:#EF5D39 !important;
+.bg-red2 {
+  background-color: #ef5d39 !important;
 }
-.bg-red3{
-  background-color: #FA5555 !important;
+.bg-red3 {
+  background-color: #fa5555 !important;
 }
-.form-control::placeholder { 
+.form-control::placeholder {
   color: #b3b6be !important;
-
 }
-.table-info{
-  --bs-table-bg:#16171B  !important;
+.table-info {
+  --bs-table-bg: #16171b !important;
 }
-.button-bg{
-  background-color: #1B1C20 !important ;
-}
-
-.buttons-ani:hover{
-  background-color: #EC532D !important;
-  -webkit-text-fill-color: white !important;
-  border-color: #EC532D !important;
+.button-bg {
+  background-color: #1b1c20 !important ;
 }
 
-.buttons-ani2:hover{
+.buttons-ani:hover {
+  background-color: #ec532d !important;
   -webkit-text-fill-color: white !important;
-}
-.buttons-ani3:hover{
-  -webkit-text-fill-color: white !important;
-  background-color: #16171B !important;
+  border-color: #ec532d !important;
 }
 
-.popup-background{
-  background-color: #252D21 !important;
+.buttons-ani2:hover {
   -webkit-text-fill-color: white !important;
-  
 }
-.progress-background{
-  background-color:#8FC542 !important;
+.buttons-ani3:hover {
+  -webkit-text-fill-color: white !important;
+  background-color: #16171b !important;
+}
+
+.popup-background {
+  background-color: #252d21 !important;
+  -webkit-text-fill-color: white !important;
+}
+.progress-background {
+  background-color: #8fc542 !important;
 }
 
 ::-webkit-scrollbar {
   width: 0px !important;
 }
 
-.bg-green2{
-  background-color:#B1F55A !important;
+.bg-green2 {
+  background-color: #b1f55a !important;
 }
-.modal-card{
-  background-color: #2A2C35 !important;
+.modal-card {
+  background-color: #2a2c35 !important;
 }
-.bg-modal{
-  background-color: #393B46 !important;
+.bg-modal {
+  background-color: #393b46 !important;
 }

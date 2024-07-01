@@ -1,6 +1,4 @@
-.App {
-  background-image: linear-gradient(147deg, #c3cbdc 0%, #edf1f4 74%);
-}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -24,4 +22,3 @@
     transform: rotate(360deg);
   }
 }
-

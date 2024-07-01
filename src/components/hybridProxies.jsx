@@ -67,7 +67,7 @@ function HybridProxies() {
           className="border border-dark mt-4 p-0 rounded-4 "
           style={{ height: "95vh" }}
         >
-          {/* Dashboard */}
+          {/*Top Dashboard */}
           <Container
             fluid
             className="p-0 d-flex align-items-center justify-content-between border-bottom border-dark "
@@ -181,7 +181,7 @@ function HybridProxies() {
             className=" overflow-y-scroll overflow-x-hidden"
             style={{ maxHeight: "90%" }}
           >
-            {/* card1 */}
+            {/* Card 1 */}
             <Row className="">
               <Col md={3} className="border-end border-dark">
                 <div className="">
@@ -299,6 +299,8 @@ function HybridProxies() {
                       <i class="bi bi-check2 me-1 pt-1 "></i>Feature 5
                     </div>
                   </Card>
+
+                  {/* Card 2 */}
                   <Card
                     className="mt-1 m-4 pt-2 p-1 bg-cards text-white border-dark "
                     style={{ width: "300px" }}
@@ -335,10 +337,9 @@ function HybridProxies() {
                 </div>
               </Col>
               <Col md={9}>
-                {/* card3 */}
+                {/* Card 3 */}
                 <Card
                   className=" ms-0 mt-3 me-2  p-1 bg-cards text-white border-dark"
-                  // style={{ width: "100%" }}
                 >
                   <div className="d-flex align-items-center justify-content-between border-bottom border-dark">
                     <Card.Header className="">Your Orders</Card.Header>
@@ -356,6 +357,7 @@ function HybridProxies() {
                     </InputGroup>
                   </div>
 
+                    {/* Table inside card 3 */}
                   <Table
                     className=" table-info m-1"
                     style={{
@@ -663,7 +665,7 @@ function HybridProxies() {
         </Container>
       </Container>
 
-      {/* modal for topup */}
+      {/* Modal for Topup */}
       <Modal
         aria-labelledby="contained-modal-title-vcenter"
         centered
