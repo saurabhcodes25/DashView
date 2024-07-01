@@ -21,7 +21,7 @@ function Lemon() {
 
   const handleCopy = () => {
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    // setTimeout(() => setCopied(false), 2000);
   };
   const notify = () => {
     toast("Downloaded Successfully!", {
@@ -118,13 +118,7 @@ function Lemon() {
                   </div>
                 </div>
                 <div className="p-1 m-2 mt-3">
-                  {/* progress-bar */}
-                  <ProgressBar
-                    className="bg-grey2"
-                    striped
-                    variant="danger"
-                    now={70}
-                  />
+                <ProgressBar variant="red2" now={70} style={{ height: 45, backgroundColor:"#16171B"}}/>
                 </div>
                 <div className="border-0 mt-2" style={{ fontSize: 14 }}>
                   <InputGroup className="bg-cards p-2 mt-2 text-white">
