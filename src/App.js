@@ -1,15 +1,19 @@
 import './App.css';
 import Login from './components/login';
 import Register from './components/register';
+import Lemon from './components/lemonDashboard';
+import Grid from './components/grid'
+import Flex from './components/flex'
 
 function App() {
   return (
     <>
-      <div className=" d-flex App p-5">
-        <Login />
-        <div className='p-3'></div>
-        <Register />
-      </div>
+    {/* <Grid/> */}
+    {/* <Flex/> */}
+        {/* <Login /> */}
+        {/* <Register /> */}
+      {/* </div> */}
+      <Lemon/>
     </>
   );
 }
