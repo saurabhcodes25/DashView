@@ -17,7 +17,7 @@ import { useState } from "react";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 import { useParams } from "react-router";
 import axios from "axios";
 
@@ -60,6 +60,35 @@ function Lemon() {
           theme: "colored",
         });
       });
+  };
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/logout', {}, { withCredentials: true });
+      toast(`${response.data}`, {
+        className: "popup-background",
+        progressClassName: "progress-background",
+        position: "top-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (error) {
+      toast('Error logging out', {
+        className: "popup-background",
+        progressClassName: "progress-background",
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
   };
   const notify = () => {
     toast("Downloaded Successfully!", {
@@ -117,10 +146,19 @@ function Lemon() {
                 <div className="">
                   <Link
                     to={`/delete`}
-                    className="btn border-0 p-0 text-grey"
+                    className="btn border-0 p-0 me-2 text-grey"
                     onClick={handleDelete}
                   >
                     <i class="bi bi-trash" style={{ fontSize: "14px" }}></i>
+                  </Link>
+                </div>
+                <div className="">
+                  <Link
+                    to={`/logout`}
+                    className="btn border-0 p-0 text-grey"
+                    onClick={handleLogout}
+                  >
+                    <i class="bi bi-box-arrow-right" style={{ fontSize: "14px" }}></i>
                   </Link>
                 </div>
                 <i
