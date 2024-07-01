@@ -1,15 +1,16 @@
 import { Container, Form, Button, Image } from "react-bootstrap";
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import img from "../assets/pfp.jpeg";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [showPass, setShowPass] = useState(false);
   const [formData, setFormData] = useState({
-    username: '',
-    fullName: '',
-    email: '',
-    password: '',
+    username: "",
+    fullName: "",
+    email: "",
+    password: "",
   });
 
   const togglePass = () => setShowPass(!showPass);
@@ -22,10 +23,13 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/register', formData);
+      const response = await axios.post(
+        "http://localhost:5000/register",
+        formData
+      );
       alert(response.data);
     } catch (error) {
-      alert('Error registering user');
+      alert("Error registering user");
     }
   };
 
@@ -109,6 +113,11 @@ function Register() {
               Register
             </Button>
           </Form.Group>
+          <div className="text-center" style={{ fontSize: 14 }}>
+            <Link to={"/"} className="border-0 text-grey  my-2 me-3">
+              Already a member? Login
+            </Link>
+          </div>
         </Form>
       </Container>
     </Container>

@@ -1,8 +1,8 @@
 import './App.css';
 import Login from './components/login';
 import Register from './components/register';
-import Grid from './components/grid'
-import Flex from './components/flex'
+// import Grid from './components/grid'
+// import Flex from './components/flex'
 import Lemon from './components/Home';
 import HybridProxies from './components/hybridProxies';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -14,12 +14,12 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route path="/" element={<Login />} />
           <Route path="/home" element={<Lemon />} />
           <Route path="/hybrid" element={<HybridProxies />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/grid" element={<Grid />} />
-          <Route path="/flex" element={<Flex />} />
+          <Route path="/register" element={<Register />} />
+          {/* <Route path="/grid" element={<Grid />} /> */}
+          {/* <Route path="/flex" element={<Flex />} /> */}
         </Routes>
       </BrowserRouter>
 

@@ -1,14 +1,14 @@
 import { Container, Form, Button, Image } from "react-bootstrap";
 import img from "../assets/pfp.jpeg";
 import { useState } from "react";
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [showPass, setShowPass] = useState(false);
   const [formData, setFormData] = useState({
-    usernameOrEmail: '',
-    password: '',
+    usernameOrEmail: "",
+    password: "",
   });
   const navigate = useNavigate();
 
@@ -22,22 +22,36 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', formData);
+      const response = await axios.post(
+        "http://localhost:5000/login",
+        formData
+      );
       alert(response.data.message);
       if (response.status === 200) {
         // Redirect to /home
-        navigate('/home');
+        navigate("/home");
       }
     } catch (error) {
-      alert('Error logging in');
+      alert("Error logging in");
     }
   };
 
   return (
-    <Container fluid className="border border-dark bg-dark2" style={{ height: "100vh" }}>
-      <Container className="mt-5 w-25 form-container bg-cards border rounded-3 border-dark" style={{ width: "30%" }}>
+    <Container
+      fluid
+      className="border border-dark bg-dark2"
+      style={{ height: "100vh" }}
+    >
+      <Container
+        className="mt-5 w-25 form-container bg-cards border rounded-3 border-dark"
+        style={{ width: "30%" }}
+      >
         <div className="text-center">
-          <Image src={img} height="100px" className="m-2 p-3 centered rounded-5" />
+          <Image
+            src={img}
+            height="100px"
+            className="m-2 p-3 centered rounded-5"
+          />
           <br />
           <Form.Label className="fs-3 fw-bold">Login</Form.Label>
         </div>
@@ -78,6 +92,11 @@ function Login() {
               Login
             </Button>
           </Form.Group>
+          <div className="text-center" style={{ fontSize: 14 }}>
+            <Link to={"/register"} className="border-0 text-grey  my-2 me-3">
+              Not a member? Register
+            </Link>
+          </div>
         </Form>
       </Container>
     </Container>

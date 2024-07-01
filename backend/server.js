@@ -13,11 +13,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// MongoDB connection
 try {
   const connectionInstance = await mongoose.connect(
-    `${process.env.MONGODB_URI}`,
+    `mongodb://localhost:27017/${process.env.dbname}`,
+    // `${process.env.MONGODB_URI}`,
   );
+
   console.log(
     "\nMongodb connected!!DB HOST:",
     connectionInstance.connection.host,
@@ -44,7 +45,7 @@ app.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ username, fullName, email, password: hashedPassword });
     await user.save();
-    res.status(201).send('User registered successfully');
+    res.status(200).send('User registered successfully');
   } catch (error) {
     res.status(400).send('Error registering user');
   }
@@ -71,6 +72,21 @@ app.post('/login', async (req, res) => {
     res.status(400).send('Error logging in');
   }
 });
+
+//update endpoint
+app.put('/update', async (req, res) => {
+  const { fullName, email, username } = req.body;
+
+  const user = await User.findByIdAndUpdate(
+    req.user?._id,
+    {
+      $set: { fullName, email: email, username },
+    },
+  )
+
+  res.status(200).json(new ApiResponse(200, user, "User updated successfully"));
+});
+
 
 app.listen(process.env.PORT || 8000, () => {
   console.log(`Server running on port ${process.env.PORT}`);
