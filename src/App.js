@@ -4,6 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { InputGroup } from 'react-bootstrap';
+import { useState } from 'react';
 
 function Grid() {
   return (
@@ -91,7 +93,6 @@ function Flex() {
 
 
       <br></br>
-      <br></br>
 
 
 
@@ -125,7 +126,6 @@ function Flex() {
 
 
       <br></br>
-      <br></br>
 
 
 
@@ -145,52 +145,111 @@ function Flex() {
 
 function Login() {
   return (
-    <Container className='border border-1'>
+    <Container className='form-container border border-1'>
       <Form>
-        <Form.Group>
+        <Form.Group className='form-group'>
           <Form.Label>Username</Form.Label>
           <Form.Control type="username" placeholder='Enter username' />
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-
-        <Form.Group>
+        <Form.Group className='form-group'>
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         <Container>
-
-          <p><Form.Group>
+          <Button className='button-container' variant='primary' type='submit'>
+            Login
+          </Button>
+          <Form.Group>
 
             <Form.Check
               type="switch"
               id="custom-switch"
               label="Remember me"
             />
-          </Form.Group>
-
-            <Button variant='primary' type='submit'>
-              Submit
-            </Button>
-          </p>
+          </Form.Group >
         </Container>
-
       </Form>
     </Container>
   )
 }
+
+function Register() {
+  const [showPass, setShowPass] = useState(false);
+  const togglePass = () => setShowPass(!showPass);
+  return (
+    <Container className='form-container border border-1'>
+
+      <InputGroup className='form-group'>
+        <InputGroup.Text >@</InputGroup.Text>
+        <Form.Control
+          placeholder="Username"
+        />
+      </InputGroup>
+      <InputGroup className='form-group'>
+        <InputGroup.Text>Full Name</InputGroup.Text>
+        <Form.Control
+          placeholder="Enter Your Full Name"
+        />
+      </InputGroup>
+      <InputGroup className='form-group'>
+        <InputGroup.Text>Email Address</InputGroup.Text>
+        <Form.Control
+          placeholder="Enter Your Email Address"
+        />
+      </InputGroup>
+      <InputGroup className='form-group'>
+        <InputGroup.Text> Choose a Password</InputGroup.Text>
+        <Form.Control type={showPass ? "text" : "password"} placeholder="Password" />
+        <Form.Check className='form-group'
+          type="switch"
+          id="custom-switch"
+          label="Show Password"
+          checked={showPass}
+          onChange={togglePass}
+        />
+      </InputGroup>
+      <Button variant='primary' type='submit'>
+        Register
+      </Button>
+    </Container>
+  )
+}
+
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>React Bootstrap with Grid</h1>
+//       <Grid />
+//       <h1>React Bootstrap with Flexbox</h1>
+//       <Flex />
+//       <h1>Login and Register</h1>
+//       <Container>
+//         <Row>
+//           <Col xs={12} md={6}>
+//             <Login />
+//           </Col>
+//           <Col xs={12} md={6}>
+//             <Register />
+//           </Col>
+//         </Row>
+//       </Container>
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
       <h1>React Bootstrap with Grid</h1>
       <Grid />
       <h1>React Bootstrap with Flexbox</h1>
-      <Flex />
-      <h1>Login Form</h1>
-      <Login />
+      <Flex /><br></br><br></br>
+      <h1>Login</h1>
+      <Login /><br></br>
+      <h1>Register</h1>
+      <Register /><br></br>
     </div>
   );
 }
