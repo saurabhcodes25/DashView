@@ -17,7 +17,7 @@ import { useState } from "react";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import axios from "axios";
 
@@ -25,8 +25,6 @@ function Lemon() {
   const [copied, setCopied] = useState(false);
 
   let { id } = useParams();
-  const navigate = useNavigate();
-
   const handleCopy = () => {
     setCopied(true);
     // setTimeout(() => setCopied(false), 2000);
