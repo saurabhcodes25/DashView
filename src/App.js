@@ -80,11 +80,11 @@ function Flex() {
 
       {/* upper */}
 
-      <Container fluid className='border border-1'>
-        <Container fluid className='d-flex border border-1'>
+      <Container className='border border-1'>
+        <div fluid className='d-flex border border-1'>
           <div className=' border border-1 w-25' >Header Logo</div>
           <div className='border border-1 w-75'>Header Banner</div>
-        </Container>
+        </div>
         <div className=' border border-1'>Header Bar</div>
       </Container>
 
@@ -96,26 +96,26 @@ function Flex() {
 
       {/*middle*/}
 
-      <Container fluid className='d-flex border border-1 '>
+      <Container  className='d-flex border border-1 '>
 
-        <Container fluid className='text-center border border-1 '>
+        <Container className='text-center border border-1 '>
           <div >Left Blocks</div>
         </Container>
+        
 
-
-        <Container fluid className='border border-1'>
+        <Container  className='border border-1'>
           <div className='border border-1'>Center-Center Blocks</div>
 
-          <Container fluid className='d-flex border border-1'>
-            <Container fluid className=' border border-1 ' >Center Left Blocks</Container>
-            <Container fluid className='border border-1'>Center Right Blocks</Container>
+          <Container className='d-flex border border-1'>
+            <Container className=' border border-1 ' >Center Left Blocks</Container>
+            <Container className='border border-1'>Center Right Blocks</Container>
           </Container>
           <div className=' border border-1'>Module Contents</div>
         </Container>
 
 
 
-        <Container fluid className='text-center border border-1'>
+        <Container className='text-center border border-1'>
           <div>Right Blocks</div>
         </Container>
 
@@ -130,7 +130,7 @@ function Flex() {
 
       {/* lower one */}
 
-      <Container fluid className='border border-1'>
+      <Container  className='border border-1'>
         <Container fluid className='border border-1'>
           Footer Bar
         </Container>
